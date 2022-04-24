@@ -2,6 +2,6 @@
 RETURNS DECIMAL(18, 2)
 AS
 BEGIN
-	RETURN (SELECT SUM(Goods.Price) AS GoodsTotalPrice FROM Goods)
+	RETURN (SELECT SUM(Goods.Price  * Goods.Count) AS GoodsTotalPrice FROM Goods)
 END
 GO 

@@ -1,6 +1,6 @@
 ﻿CREATE FUNCTION GoodsLogsFromInputProvider
 (	
-	@providerName NVARCHAR(30)
+	@providerName NVARCHAR(40)
 )
 RETURNS TABLE 
 AS

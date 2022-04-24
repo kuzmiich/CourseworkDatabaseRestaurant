@@ -4,8 +4,7 @@
     [GoodsId] INT NOT NULL, 
     [ProviderId] INT NOT NULL, 
     [DeliveryId] INT NOT NULL, 
-    [DateOfRegistration] DATETIME NOT NULL, 
-    [GoodsCount] INT NOT NULL, 
+    [DateOfRegistration] DATETIME NOT NULL,
 
     CONSTRAINT [FK_GoodsLogs_Goods] FOREIGN KEY ([GoodsId]) REFERENCES [Goods]([Id]) 
         ON DELETE CASCADE

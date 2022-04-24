@@ -2,14 +2,14 @@
 CREATE VIEW RestaurantView 
 AS 
 SELECT      
-	dbo.GoodsLogs.GoodsCount,
-	dbo.GoodsLogs.DateOfRegistration,
-	dbo.Delivery.DeliveryName,
-	dbo.Manufacturers.ManufacturerName, 
-	dbo.Goods.GoodsName,
-	dbo.Providers.ProviderName
-FROM dbo.GoodsLogs 
-	INNER JOIN dbo.Delivery ON dbo.Delivery.Id = dbo.GoodsLogs.DeliveryId 
-	INNER JOIN dbo.Goods ON dbo.GoodsLogs.GoodsId = dbo.Goods.Id 
-	INNER JOIN dbo.Manufacturers ON dbo.Goods.ManufactureId = dbo.Manufacturers.Id 
-	INNER JOIN dbo.Providers ON dbo.GoodsLogs.ProviderId = dbo.Providers.Id
+	GoodsLogs.DateOfRegistration,
+	Delivery.DeliveryName,
+	Manufacturers.ManufacturerName, 
+	Goods.GoodsName,
+	Goods.Count AS GoodsCount,
+	Providers.ProviderName
+FROM GoodsLogs 
+	INNER JOIN Delivery ON Delivery.Id = GoodsLogs.DeliveryId 
+	INNER JOIN Goods ON GoodsLogs.GoodsId = Goods.Id 
+	INNER JOIN Manufacturers ON Goods.ManufacturerId = Manufacturers.Id 
+	INNER JOIN Providers ON GoodsLogs.ProviderId = Providers.Id

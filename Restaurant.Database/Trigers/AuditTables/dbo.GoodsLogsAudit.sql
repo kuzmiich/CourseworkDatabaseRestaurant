@@ -9,7 +9,5 @@
     [DeliveryId_old] INT, 
     [DeliveryId_new] INT NULL, 
     [DateOfRegistration_old] DATETIME, 
-    [DateOfRegistration_new] DATETIME NULL, 
-    [GoodsCount_old] INT,
-    [GoodsCount_new] INT NULL
+    [DateOfRegistration_new] DATETIME NULL,
 );

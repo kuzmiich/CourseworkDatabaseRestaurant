@@ -7,7 +7,9 @@
     [GoodsName_old] NVARCHAR(50), 
     [GoodsName_new] NVARCHAR(50) NULL, 
     [Price_old] DECIMAL(18, 2),
-    [Price_new] DECIMAL(18, 2) NULL,
+    [Price_new] DECIMAL(18, 2) NULL, 
+    [Count_old] INT,
+    [Count_new] INT NULL,
 	[IsDeleted_old] BIT,
 	[IsDeleted_new] BIT NULL,
 );

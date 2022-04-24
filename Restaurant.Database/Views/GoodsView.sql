@@ -2,8 +2,11 @@
 CREATE VIEW GoodsView 
 AS 
 SELECT 
-	dbo.Goods.Id,	
-	dbo.Goods.GoodsName,
-	dbo.Manufacturers.ManufacturerName
-FROM dbo.Goods 
-	INNER JOIN dbo.Manufacturers ON dbo.Manufacturers.Id = dbo.Goods.ManufactureId
+	Goods.Id,	
+	Goods.GoodsName,
+	Manufacturers.ManufacturerName,
+	Goods.Price,
+	Goods.Count,
+	Goods.IsDeleted
+FROM Goods 
+	INNER JOIN Manufacturers ON Manufacturers.Id = Goods.ManufacturerId

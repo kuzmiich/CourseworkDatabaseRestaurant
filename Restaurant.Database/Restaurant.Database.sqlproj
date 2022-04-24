@@ -67,28 +67,27 @@
   <ItemGroup>
     <Build Include="Tables\dbo.Providers.sql" />
     <Build Include="Tables\dbo.Delivery.sql" />
-    <Build Include="Tables\dbo.Manufactures.sql" />
+    <Build Include="Tables\dbo.Manufacturers.sql" />
     <Build Include="Tables\dbo.GoodsLogs.sql" />
     <Build Include="Tables\dbo.Goods.sql" />
-    <None Include="Functions\GetGoodsTotalPrice.sql" />
-    <None Include="Functions\GetRestaurantTotalPrice.sql" />
-    <None Include="Procedures\SeedData\DeliverySeedData.sql" />
-    <None Include="Procedures\SeedData\GoodsLogsSeedData.sql" />
-    <None Include="Procedures\SeedData\GoodsSeedData.sql" />
-    <None Include="Procedures\SeedData\ManufacturersSeedData.sql" />
-    <None Include="Procedures\SeedData\ProvidersSeedData.sql" />
-    <None Include="Procedures\SeedData\RestaurantSeedData.sql" />
-    <None Include="Trigers\AuditTables\dbo.GoodsAudit.sql" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Procedures\GetGoodsLogs.sql" />
-    <None Include="Views\RestaurantView.sql" />
-    <None Include="Functions\GoodsLogsFromInputProvider.sql" />
-    <None Include="Trigers\GoodsLogsAudit_Update_Delete.sql" />
-    <None Include="Trigers\Goods_Control_Delete.sql" />
-    <None Include="Trigers\GoodsAudit_Update_Delete.sql" />
-    <None Include="Views\DeliveryView.sql" />
-    <None Include="Trigers\AuditTables\dbo.GoodsLogsAudit.sql" />
-    <None Include="Views\GoodsView.sql" />
+    <Build Include="Procedures\SeedData\DeliverySeedData.sql" />
+    <Build Include="Procedures\SeedData\GoodsLogsSeedData.sql" />
+    <Build Include="Procedures\SeedData\GoodsSeedData.sql" />
+    <Build Include="Procedures\SeedData\ManufacturersSeedData.sql" />
+    <Build Include="Procedures\SeedData\ProvidersSeedData.sql" />
+    <Build Include="Procedures\SeedData\RestaurantSeedData.sql" />
+    <Build Include="Trigers\AuditTables\dbo.GoodsAudit.sql" />
+    <Build Include="Procedures\GetGoodsCount.sql" />
+    <Build Include="Procedures\GetGoodsLogsByInterval.sql" />
+    <Build Include="Views\RestaurantView.sql" />
+    <Build Include="Functions\GoodsLogsFromInputProvider.sql" />
+    <Build Include="Trigers\GoodsLogsAudit_Update_Delete.sql" />
+    <Build Include="Trigers\Goods_Control_Delete.sql" />
+    <Build Include="Trigers\GoodsAudit_Update_Delete.sql" />
+    <Build Include="Views\DeliveryView.sql" />
+    <Build Include="Trigers\AuditTables\dbo.GoodsLogsAudit.sql" />
+    <Build Include="Views\GoodsView.sql" />
+    <Build Include="Procedures\GoodsInsertData.sql" />
+    <Build Include="Functions\GetGoodsTotalPrice.sql" />
   </ItemGroup>
 </Project>

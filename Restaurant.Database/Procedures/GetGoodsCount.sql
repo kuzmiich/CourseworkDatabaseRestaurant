@@ -1,0 +1,6 @@
+﻿CREATE PROCEDURE GetGoodsCount
+AS
+BEGIN
+	SELECT COUNT(*) AS GoodsCount FROM Goods
+END
+GO 
