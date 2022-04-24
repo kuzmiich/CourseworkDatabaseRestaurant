@@ -12,8 +12,8 @@ namespace Restaurant
         private const string QueryGetGoodsCount = "EXECUTE GetGoodsCount";
         private const string QueryNameInsertGoods = "GoodsInsertData";
 
-        public readonly string ConnectionString = ConfigurationManager.ConnectionStrings["LocalDatabase"].ConnectionString;
-        public readonly SqlConnection Connection;
+        internal readonly string ConnectionString = ConfigurationManager.ConnectionStrings["LocalDatabase"].ConnectionString;
+        internal readonly SqlConnection Connection;
 
         public Form1()
         {
