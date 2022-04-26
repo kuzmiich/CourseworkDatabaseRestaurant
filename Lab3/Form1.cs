@@ -2,111 +2,113 @@
 using System.Configuration;
 using System.Data;
 using System.Data.SqlClient;
+using System.Text;
 using System.Windows.Forms;
 
-namespace Restaurant
+namespace Lab3
 {
     public partial class Form1 : Form
     {
-        private const string QueryExecuteGoodsView = "SELECT * FROM GoodsView";
-        private const string QueryGetGoodsCount = "EXECUTE GetGoodsCount";
-        private const string QueryNameInsertGoods = "GoodsInsertData";
+        private const string QueryGetGoods = "SELECT * FROM Goods";
 
-        public readonly string ConnectionString = ConfigurationManager.ConnectionStrings["LocalDatabase"].ConnectionString;
-        public readonly SqlConnection Connection;
+        public static string ConnectionString = ConfigurationManager.ConnectionStrings["LocalDatabase"].ConnectionString;
+
+        private readonly SqlConnection _connection;
+        private readonly SqlDataAdapter _adapter;
+        private DataSet _dataset = new();
 
         public Form1()
         {
-            Connection = new SqlConnection(ConnectionString);
+            _connection = new SqlConnection(ConnectionString);
+            _adapter = new SqlDataAdapter(QueryGetGoods, _connection);
+            _adapter.Fill(_dataset, "Goods");
             InitializeComponent();
         }
 
-        private void BtnAdd_Click(object sender, EventArgs e)
+        private void btnChange_Click(object sender, EventArgs e)
         {
-            var cmd = new SqlCommand(QueryNameInsertGoods, Connection)
-            {
-                CommandType = CommandType.StoredProcedure,
-            };
-            cmd.Parameters.AddWithValue("@manufacturerId", int.Parse(manufacturerId.Text));
-            cmd.Parameters.AddWithValue("@goodsName", goodsName.Text);
-            cmd.Parameters.AddWithValue("@price", decimal.Parse(price.Text));
-            cmd.Parameters.AddWithValue("@count", int.Parse(count.Text));
+            var builder = new SqlCommandBuilder(_adapter);
 
-            cmd.Parameters.Add(new SqlParameter("@Id", SqlDbType.Int, 4));
-            cmd.Parameters["@Id"].Direction = ParameterDirection.Output;
+            DataTable GoodsTable = _dataset.Tables["Goods"];
+            DataRow row = GoodsTable.NewRow();
 
-            Connection.Open();
-            try
-            {
-                int numAff = cmd.ExecuteNonQuery();
+            row["ManufacturerId"] = int.Parse(numericUpDown1.Text);
+            row["GoodsName"] = tbName.Text;
+            row["Price"] = decimal.Parse(numericUpDown2.Text);
+            row["Count"] = int.Parse(numericUpDown3.Text);
 
-                label3.Text = "Добавлена запись" + numAff;
-
-                // Получить вновь сгенерированный идентификатор
-                var c = cmd.Parameters["@Id"].Value;
-
-                label8.Text = "Новому товару присвоен ID: " + cmd.Parameters["@Id"].Value;
-            }
-            finally
-            {
-                Connection.Close();
-            }
+            GoodsTable.Rows.Add(row);
+            builder.GetInsertCommand();
+            _adapter.Update(_dataset, "Goods");
         }
 
-        private void BtnClean_Click(object sender, EventArgs e)
+        private void btnClean_Click(object sender, EventArgs e)
         {
-            listBox1.Items.Clear();
+            list1.Items.Clear();
         }
 
-        private void BtnRead_Click(object sender, EventArgs e)
+        private void btnManualFilling_Click(object sender, EventArgs e)
         {
-            var command = new SqlCommand()
+            var database = new DataSet("BookStore");
+            var booksTable = new DataTable("Books");
+
+            // добавление таблицы в dataset
+            database.Tables.Add(booksTable);
+
+            // создание столбцов для таблицы Books
+            var idColumn = new DataColumn("Id", typeof(int))
             {
-                Connection = Connection,
-                CommandType = CommandType.Text,
-                CommandText = QueryExecuteGoodsView
+                Unique = true, // столбец будет иметь уникальное значение
+                AllowDBNull = false, // не может принимать null
+                AutoIncrement = true, // будет автоинкрементироваться
+                AutoIncrementSeed = 1, // начальное значение
+                AutoIncrementStep = 1 // приращении при добавлении новой строки
             };
 
-            Connection.Open();
-            try
+            var nameColumn = new DataColumn("Name", Type.GetType("System.String"));
+            var priceColumn = new DataColumn("Price", Type.GetType("System.Decimal"));
+            var discountColumn = new DataColumn("Discount", Type.GetType("System.Decimal"))
             {
-                SqlDataReader reader = command.ExecuteReader();
+                Expression = "Price * 0.2"
+            };
 
-                while (reader.Read())
-                {
-                    var result = reader.GetValue(1) 
-                        + "\t"
-                        + reader.GetValue(2)
-                        + "\t\t"
-                        + reader.GetValue(3)
-                        + "\t\t"
-                        + reader.GetValue(4);
+            booksTable.Columns.AddRange(new[] { idColumn, nameColumn, priceColumn, discountColumn });
 
-                    listBox1.Items.Insert(0, result);
-                }
-                reader.Close();
-            }
-            finally
+            // определение первичного ключа таблицы books
+            booksTable.PrimaryKey = new DataColumn[] { booksTable.Columns["Id"] };
+
+            booksTable.NewRow();
+            booksTable.Rows.Add(new object[] { null, "Война и мир", 200 });
+            booksTable.Rows.Add(new object[] { null, "Отцы и дети", 170 });
+            booksTable.Rows.Add(new object[] { null, "Преступление и наказание", 270 });
+            booksTable.Rows.Add(new object[] { null, "Идиот", 270 });
+            booksTable.Rows.Add(new object[] { null, "Арзипелаг ГУЛАГ", 3000 });
+
+            foreach (DataRow r in booksTable.Rows)
             {
-                Connection.Close();
+                var result = new StringBuilder();
+                foreach (var cell in r.ItemArray)
+                    result.Append(cell + " ");
+
+                list1.Items.Add(result);
+
             }
         }
 
-        private void BtnGetCount_Click(object sender, EventArgs e)
+        private void btnFill_Click(object sender, EventArgs e)
         {
-            var command = new SqlCommand(QueryGetGoodsCount, Connection);
-
-            Connection.Open();
-            try
+            // Вывод из DataSet строк таблицы Goods в элемент list1
+            foreach (DataRow row in _dataset.Tables["Goods"].Rows)
             {
-                var count = (int)command.ExecuteScalar();
+                string result = row["Id"].ToString() + " "
+                    + row["ManufacturerId"].ToString() + " "
+                    + row["GoodsName"] + " "
+                    + row["Price"].ToString() + ""
+                    + row["Count"].ToString();
 
-                label1.Text = $"Количество всех товаров: {count}"; // 9
+                list1.Items.Add(result);
             }
-            finally
-            {
-                Connection.Close();
-            }
+            _dataset.Clear();
         }
     }
 }

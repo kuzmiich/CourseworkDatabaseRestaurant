@@ -118,4 +118,3 @@ namespace Lab5
         private System.Windows.Forms.ComboBox cb_Filter2;
     }
 }
-
