@@ -1,7 +1,6 @@
-﻿
-using System;
+﻿using System;
 
-namespace Restaurant
+namespace Lab2
 {
     partial class Form1
     {
@@ -31,7 +30,6 @@ namespace Restaurant
         /// </summary>
         private void InitializeComponent()
         {
-            this.components = new System.ComponentModel.Container();
             this.listBox1 = new System.Windows.Forms.ListBox();
             this.btRead = new System.Windows.Forms.Button();
             this.btClean = new System.Windows.Forms.Button();
@@ -49,7 +47,6 @@ namespace Restaurant
             this.label3 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
             this.count = new System.Windows.Forms.TextBox();
-            this.contextMenuStrip1 = new System.Windows.Forms.ContextMenuStrip(this.components);
             this.SuspendLayout();
             // 
             // listBox1
@@ -213,12 +210,6 @@ namespace Restaurant
             this.count.Size = new System.Drawing.Size(100, 27);
             this.count.TabIndex = 19;
             // 
-            // contextMenuStrip1
-            // 
-            this.contextMenuStrip1.ImageScalingSize = new System.Drawing.Size(20, 20);
-            this.contextMenuStrip1.Name = "contextMenuStrip1";
-            this.contextMenuStrip1.Size = new System.Drawing.Size(61, 4);
-            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 20F);
@@ -266,7 +257,6 @@ namespace Restaurant
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.TextBox count;
-        private System.Windows.Forms.ContextMenuStrip contextMenuStrip1;
     }
 }
 
