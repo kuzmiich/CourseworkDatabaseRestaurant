@@ -1,7 +1,7 @@
 ﻿
 namespace Lab5
 {
-    partial class Form1
+    partial class Form2
     {
         /// <summary>
         /// Обязательная переменная конструктора.
@@ -90,7 +90,7 @@ namespace Lab5
             this.cb_Filter2.Size = new System.Drawing.Size(202, 28);
             this.cb_Filter2.TabIndex = 8;
             // 
-            // Form1
+            // Form2
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -101,8 +101,8 @@ namespace Lab5
             this.Controls.Add(this.bt_Read);
             this.Controls.Add(this.dataGridView1);
             this.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
-            this.Name = "Form1";
-            this.Text = "Lab4";
+            this.Name = "Form2";
+            this.Text = "Lab5";
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();

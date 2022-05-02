@@ -1,11 +1,12 @@
 ﻿using System;
-using System.Configuration;
 using System.Data;
+using System.Configuration;
 using System.Data.SqlClient;
 using System.Text;
 using System.Windows.Forms;
 
-namespace Restaurant
+
+namespace Lab3
 {
     public partial class Form2 : Form
     {
@@ -15,14 +16,13 @@ namespace Restaurant
 
         private readonly SqlConnection _connection;
         private readonly SqlDataAdapter _adapter;
-
-        private DataSet dataset = new();
+        private DataSet _dataset = new();
 
         public Form2()
         {
             _connection = new SqlConnection(ConnectionString);
             _adapter = new SqlDataAdapter(QueryGetGoods, _connection);
-            _adapter.Fill(dataset, "Goods");
+            _adapter.Fill(_dataset, "Goods");
             InitializeComponent();
         }
 
@@ -30,7 +30,7 @@ namespace Restaurant
         {
             var builder = new SqlCommandBuilder(_adapter);
 
-            DataTable GoodsTable = dataset.Tables["Goods"];
+            DataTable GoodsTable = _dataset.Tables["Goods"];
             DataRow row = GoodsTable.NewRow();
 
             row["ManufacturerId"] = int.Parse(numericUpDown1.Text);
@@ -40,8 +40,7 @@ namespace Restaurant
 
             GoodsTable.Rows.Add(row);
             builder.GetInsertCommand();
-            _adapter.Update(dataset, "Goods"); 
-            btnFill_Click(sender, e);
+            _adapter.Update(_dataset, "Goods");
         }
 
         private void btnClean_Click(object sender, EventArgs e)
@@ -100,17 +99,17 @@ namespace Restaurant
         private void btnFill_Click(object sender, EventArgs e)
         {
             // Вывод из DataSet строк таблицы Goods в элемент list1
-            foreach (DataRow row in dataset.Tables["Goods"].Rows)
+            foreach (DataRow row in _dataset.Tables["Goods"].Rows)
             {
-                string result = row["Id"].ToString() + " " 
-                    + row["ManufacturerId"].ToString() + " " 
-                    + row["GoodsName"] + " " 
+                string result = row["Id"].ToString() + " "
+                    + row["ManufacturerId"].ToString() + " "
+                    + row["GoodsName"] + " "
                     + row["Price"].ToString() + ""
                     + row["Count"].ToString();
 
                 list1.Items.Add(result);
             }
-            dataset.Clear();
+            _dataset.Clear();
         }
     }
 }

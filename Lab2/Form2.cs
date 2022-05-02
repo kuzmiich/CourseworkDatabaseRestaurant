@@ -1,18 +1,12 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
 using System.Configuration;
 using System.Data;
 using System.Data.SqlClient;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace Lab2
 {
-    public partial class Form1 : Form
+    public partial class Form2 : Form
     {
         private const string QueryExecuteGoodsView = "SELECT * FROM GoodsView";
         private const string QueryGetGoodsCount = "EXECUTE GetGoodsCount";
@@ -21,7 +15,7 @@ namespace Lab2
         internal readonly string ConnectionString = ConfigurationManager.ConnectionStrings["LocalDatabase"].ConnectionString;
         internal readonly SqlConnection Connection;
 
-        public Form1()
+        public Form2()
         {
             Connection = new SqlConnection(ConnectionString);
             InitializeComponent();

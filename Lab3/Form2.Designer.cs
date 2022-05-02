@@ -1,10 +1,9 @@
-﻿using System;
-
-namespace Restaurant
+﻿
+namespace Lab3
 {
     partial class Form2
     {
-        /// <summary>
+        // <summary>
         /// Обязательная переменная конструктора.
         /// </summary>
         private System.ComponentModel.IContainer components = null;
@@ -237,7 +236,7 @@ namespace Restaurant
             this.Controls.Add(this.btFill);
             this.Controls.Add(this.list1);
             this.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
-            this.Name = "Form2";
+            this.Name = "Form1";
             this.Text = "Form1";
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDown1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDown2)).EndInit();
@@ -265,4 +264,3 @@ namespace Restaurant
         private System.Windows.Forms.Label label5;
     }
 }
-

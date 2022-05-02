@@ -4,9 +4,10 @@ using System.Data;
 using System.Data.SqlClient;
 using System.Windows.Forms;
 
+
 namespace Lab5
 {
-    public partial class Form1 : Form
+    public partial class Form2 : Form
     {
         private const string TableName = "Goods";
         private const string QueryGetGoods = "SELECT * FROM Goods";
@@ -17,7 +18,7 @@ namespace Lab5
         private readonly SqlDataAdapter _adapter;
         private readonly DataSet _dataSet;
 
-        public Form1()
+        public Form2()
         {
             _dataSet = new DataSet();
             _connection = new SqlConnection(ConnectionString);

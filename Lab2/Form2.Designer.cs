@@ -1,8 +1,7 @@
-﻿using System;
-
+﻿
 namespace Lab2
 {
-    partial class Form1
+    partial class Form2
     {
         /// <summary>
         /// Обязательная переменная конструктора.
@@ -259,4 +258,3 @@ namespace Lab2
         private System.Windows.Forms.TextBox count;
     }
 }
-
