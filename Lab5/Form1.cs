@@ -16,6 +16,7 @@ namespace Lab5
     {
 
         private const string QueryGetGoods = "SELECT * FROM Goods";
+        private const string QueryGetManufacturers = "SELECT Id, manufacturerName FROM Manufacturers";
 
         public static string ConnectionString = ConfigurationManager.ConnectionStrings["LocalDatabase"].ConnectionString;
 
@@ -29,7 +30,7 @@ namespace Lab5
             InitializeComponent();
         }
 
-        private void bt_Read_Click(object sender, EventArgs e)
+        private void Btn_Read_Click(object sender, EventArgs e)
         {
             var _dataset = new DataSet();
             _adapter.Fill(_dataset, "Goods");
@@ -57,7 +58,6 @@ namespace Lab5
             // Привязка отфильтрованных данных к GridView4
 
             var view4 = new DataView(_dataset.Tables["Goods"]);
-
             if (cb_Filter1.SelectedIndex == 0 && cb_Filter2.SelectedIndex == 1)
             {
                 view4.RowFilter = "ManufacturerId=7";
@@ -82,13 +82,10 @@ namespace Lab5
                 label1.Text = "Filter = NONE";
             }
             //часть 4
-            string sqlMan = "SELECT Id, manufacturerName FROM Manufacturers";
-            string sqlGoods = "SELECT GoodsName, ManufacturerId, Price FROM Goods";
-
-            var adapter2 = new SqlDataAdapter(sqlMan, _connection);
+            var adapter2 = new SqlDataAdapter(QueryGetManufacturers, _connection);
             var dataset2 = new DataSet();
             adapter2.Fill(dataset2, "Manufacturers");
-            adapter2.SelectCommand.CommandText = sqlGoods;
+            adapter2.SelectCommand.CommandText = QueryGetGoods;
             adapter2.Fill(dataset2, "Goods");
 
             var relation = new DataRelation("ManGoods",
@@ -96,9 +93,9 @@ namespace Lab5
                 dataset2.Tables["Goods"].Columns["ManufacturerId"]);
             dataset2.Relations.Add(relation);
 
-            var count = new DataColumn("Кол-во продуктов", typeof(int), "COUNT(Child(ManGoods).ManufacturerId)");
-            var max = new DataColumn("Самый дорогой продукт: стоимость", typeof(decimal), "MAX(Child(ManGoods).Price)");
-            var min = new DataColumn("Самый дешевый продукт: стоимость", typeof(decimal), "MIN(Child(ManGoods).Price)");
+            var count = new DataColumn("Product count", typeof(int), "COUNT(Child(ManGoods).ManufacturerId)");
+            var max = new DataColumn("Product with max cost: ", typeof(decimal), "MAX(Child(ManGoods).Price)");
+            var min = new DataColumn("Product with min cost", typeof(decimal), "MIN(Child(ManGoods).Price)");
 
             // Добавить столбцы
 
