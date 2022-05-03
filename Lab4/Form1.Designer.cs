@@ -64,12 +64,14 @@ namespace Lab4
             this.button14 = new System.Windows.Forms.Button();
             this.button15 = new System.Windows.Forms.Button();
             this.button16 = new System.Windows.Forms.Button();
-            this.listBox1 = new System.Windows.Forms.ListBox();
             this.button17 = new System.Windows.Forms.Button();
             this.button18 = new System.Windows.Forms.Button();
             this.button19 = new System.Windows.Forms.Button();
             this.button20 = new System.Windows.Forms.Button();
             this.button21 = new System.Windows.Forms.Button();
+            this.checkBox1 = new System.Windows.Forms.CheckBox();
+            this.checkBox2 = new System.Windows.Forms.CheckBox();
+            this.listBox1 = new System.Windows.Forms.ListBox();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView2)).BeginInit();
             this.SuspendLayout();
@@ -90,7 +92,7 @@ namespace Lab4
             // 
             // textBox4
             // 
-            this.textBox4.Location = new System.Drawing.Point(911, 74);
+            this.textBox4.Location = new System.Drawing.Point(933, 77);
             this.textBox4.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.textBox4.Name = "textBox4";
             this.textBox4.Size = new System.Drawing.Size(132, 27);
@@ -99,16 +101,16 @@ namespace Lab4
             // label6
             // 
             this.label6.AutoSize = true;
-            this.label6.Location = new System.Drawing.Point(815, 74);
+            this.label6.Location = new System.Drawing.Point(815, 77);
             this.label6.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(88, 20);
+            this.label6.Size = new System.Drawing.Size(110, 20);
             this.label6.TabIndex = 32;
-            this.label6.Text = "№ региона";
+            this.label6.Text = "ManufacturerId";
             // 
             // textBox3
             // 
-            this.textBox3.Location = new System.Drawing.Point(911, 20);
+            this.textBox3.Location = new System.Drawing.Point(933, 17);
             this.textBox3.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.textBox3.Name = "textBox3";
             this.textBox3.Size = new System.Drawing.Size(132, 27);
@@ -136,9 +138,9 @@ namespace Lab4
             this.label4.Location = new System.Drawing.Point(815, 20);
             this.label4.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(72, 20);
+            this.label4.Size = new System.Drawing.Size(83, 20);
             this.label4.TabIndex = 27;
-            this.label4.Text = "Отчество";
+            this.label4.Text = "Стоимость";
             // 
             // label3
             // 
@@ -146,23 +148,23 @@ namespace Lab4
             this.label3.Location = new System.Drawing.Point(575, 74);
             this.label3.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(73, 20);
+            this.label3.Size = new System.Drawing.Size(90, 20);
             this.label3.TabIndex = 26;
-            this.label3.Text = "Фамилия";
+            this.label3.Text = "Количество";
             // 
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(575, 18);
+            this.label2.Location = new System.Drawing.Point(575, 23);
             this.label2.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(39, 20);
+            this.label2.Size = new System.Drawing.Size(91, 20);
             this.label2.TabIndex = 25;
-            this.label2.Text = "Имя";
+            this.label2.Text = "Имя товара";
             // 
             // textBox5
             // 
-            this.textBox5.Location = new System.Drawing.Point(988, 118);
+            this.textBox5.Location = new System.Drawing.Point(1034, 362);
             this.textBox5.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.textBox5.Name = "textBox5";
             this.textBox5.ReadOnly = true;
@@ -172,7 +174,7 @@ namespace Lab4
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(920, 123);
+            this.label1.Location = new System.Drawing.Point(933, 362);
             this.label1.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(57, 20);
@@ -195,7 +197,7 @@ namespace Lab4
             // 
             // textBox7
             // 
-            this.textBox7.Location = new System.Drawing.Point(737, 693);
+            this.textBox7.Location = new System.Drawing.Point(728, 729);
             this.textBox7.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.textBox7.Name = "textBox7";
             this.textBox7.Size = new System.Drawing.Size(132, 27);
@@ -204,7 +206,7 @@ namespace Lab4
             // label9
             // 
             this.label9.AutoSize = true;
-            this.label9.Location = new System.Drawing.Point(568, 693);
+            this.label9.Location = new System.Drawing.Point(568, 732);
             this.label9.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label9.Name = "label9";
             this.label9.Size = new System.Drawing.Size(152, 20);
@@ -213,7 +215,7 @@ namespace Lab4
             // 
             // textBox6
             // 
-            this.textBox6.Location = new System.Drawing.Point(988, 696);
+            this.textBox6.Location = new System.Drawing.Point(1034, 659);
             this.textBox6.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.textBox6.Name = "textBox6";
             this.textBox6.ReadOnly = true;
@@ -223,7 +225,7 @@ namespace Lab4
             // label5
             // 
             this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(895, 696);
+            this.label5.Location = new System.Drawing.Point(933, 659);
             this.label5.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(57, 20);
@@ -232,10 +234,10 @@ namespace Lab4
             // 
             // button1
             // 
-            this.button1.Location = new System.Drawing.Point(573, 155);
+            this.button1.Location = new System.Drawing.Point(573, 176);
             this.button1.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(108, 35);
+            this.button1.Size = new System.Drawing.Size(136, 35);
             this.button1.TabIndex = 43;
             this.button1.Text = "Добавить";
             this.button1.UseVisualStyleBackColor = true;
@@ -243,10 +245,10 @@ namespace Lab4
             // 
             // button2
             // 
-            this.button2.Location = new System.Drawing.Point(573, 200);
+            this.button2.Location = new System.Drawing.Point(573, 232);
             this.button2.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(100, 35);
+            this.button2.Size = new System.Drawing.Size(136, 35);
             this.button2.TabIndex = 44;
             this.button2.Text = "Отмена";
             this.button2.UseVisualStyleBackColor = true;
@@ -254,10 +256,10 @@ namespace Lab4
             // 
             // button3
             // 
-            this.button3.Location = new System.Drawing.Point(703, 200);
+            this.button3.Location = new System.Drawing.Point(717, 232);
             this.button3.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.button3.Name = "button3";
-            this.button3.Size = new System.Drawing.Size(100, 35);
+            this.button3.Size = new System.Drawing.Size(130, 35);
             this.button3.TabIndex = 46;
             this.button3.Text = "Отмена";
             this.button3.UseVisualStyleBackColor = true;
@@ -265,10 +267,10 @@ namespace Lab4
             // 
             // button4
             // 
-            this.button4.Location = new System.Drawing.Point(703, 155);
+            this.button4.Location = new System.Drawing.Point(717, 176);
             this.button4.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.button4.Name = "button4";
-            this.button4.Size = new System.Drawing.Size(100, 35);
+            this.button4.Size = new System.Drawing.Size(130, 35);
             this.button4.TabIndex = 45;
             this.button4.Text = "Изменить";
             this.button4.UseVisualStyleBackColor = true;
@@ -276,10 +278,10 @@ namespace Lab4
             // 
             // button5
             // 
-            this.button5.Location = new System.Drawing.Point(815, 200);
+            this.button5.Location = new System.Drawing.Point(860, 232);
             this.button5.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.button5.Name = "button5";
-            this.button5.Size = new System.Drawing.Size(100, 35);
+            this.button5.Size = new System.Drawing.Size(110, 35);
             this.button5.TabIndex = 48;
             this.button5.Text = "Отмена";
             this.button5.UseVisualStyleBackColor = true;
@@ -287,10 +289,10 @@ namespace Lab4
             // 
             // button6
             // 
-            this.button6.Location = new System.Drawing.Point(815, 155);
+            this.button6.Location = new System.Drawing.Point(860, 176);
             this.button6.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.button6.Name = "button6";
-            this.button6.Size = new System.Drawing.Size(100, 35);
+            this.button6.Size = new System.Drawing.Size(110, 35);
             this.button6.TabIndex = 47;
             this.button6.Text = "Удалить";
             this.button6.UseVisualStyleBackColor = true;
@@ -298,10 +300,10 @@ namespace Lab4
             // 
             // button7
             // 
-            this.button7.Location = new System.Drawing.Point(815, 845);
+            this.button7.Location = new System.Drawing.Point(868, 845);
             this.button7.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.button7.Name = "button7";
-            this.button7.Size = new System.Drawing.Size(100, 35);
+            this.button7.Size = new System.Drawing.Size(112, 35);
             this.button7.TabIndex = 54;
             this.button7.Text = "Отмена";
             this.button7.UseVisualStyleBackColor = true;
@@ -309,10 +311,10 @@ namespace Lab4
             // 
             // button8
             // 
-            this.button8.Location = new System.Drawing.Point(815, 786);
+            this.button8.Location = new System.Drawing.Point(868, 786);
             this.button8.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.button8.Name = "button8";
-            this.button8.Size = new System.Drawing.Size(100, 35);
+            this.button8.Size = new System.Drawing.Size(112, 35);
             this.button8.TabIndex = 53;
             this.button8.Text = "Удалить";
             this.button8.UseVisualStyleBackColor = true;
@@ -320,10 +322,10 @@ namespace Lab4
             // 
             // button9
             // 
-            this.button9.Location = new System.Drawing.Point(692, 845);
+            this.button9.Location = new System.Drawing.Point(717, 845);
             this.button9.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.button9.Name = "button9";
-            this.button9.Size = new System.Drawing.Size(100, 35);
+            this.button9.Size = new System.Drawing.Size(130, 35);
             this.button9.TabIndex = 52;
             this.button9.Text = "Отмена";
             this.button9.UseVisualStyleBackColor = true;
@@ -331,10 +333,10 @@ namespace Lab4
             // 
             // button10
             // 
-            this.button10.Location = new System.Drawing.Point(692, 786);
+            this.button10.Location = new System.Drawing.Point(717, 786);
             this.button10.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.button10.Name = "button10";
-            this.button10.Size = new System.Drawing.Size(100, 35);
+            this.button10.Size = new System.Drawing.Size(130, 35);
             this.button10.TabIndex = 51;
             this.button10.Text = "Изменить";
             this.button10.UseVisualStyleBackColor = true;
@@ -345,7 +347,7 @@ namespace Lab4
             this.button11.Location = new System.Drawing.Point(568, 845);
             this.button11.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.button11.Name = "button11";
-            this.button11.Size = new System.Drawing.Size(100, 35);
+            this.button11.Size = new System.Drawing.Size(141, 35);
             this.button11.TabIndex = 50;
             this.button11.Text = "Отмена";
             this.button11.UseVisualStyleBackColor = true;
@@ -356,7 +358,7 @@ namespace Lab4
             this.button12.Location = new System.Drawing.Point(568, 786);
             this.button12.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.button12.Name = "button12";
-            this.button12.Size = new System.Drawing.Size(100, 35);
+            this.button12.Size = new System.Drawing.Size(141, 35);
             this.button12.TabIndex = 49;
             this.button12.Text = "Добавить";
             this.button12.UseVisualStyleBackColor = true;
@@ -364,10 +366,10 @@ namespace Lab4
             // 
             // button13
             // 
-            this.button13.Location = new System.Drawing.Point(943, 845);
+            this.button13.Location = new System.Drawing.Point(988, 845);
             this.button13.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.button13.Name = "button13";
-            this.button13.Size = new System.Drawing.Size(100, 35);
+            this.button13.Size = new System.Drawing.Size(110, 35);
             this.button13.TabIndex = 56;
             this.button13.Text = "Обновить";
             this.button13.UseVisualStyleBackColor = true;
@@ -375,10 +377,10 @@ namespace Lab4
             // 
             // button14
             // 
-            this.button14.Location = new System.Drawing.Point(943, 786);
+            this.button14.Location = new System.Drawing.Point(988, 786);
             this.button14.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.button14.Name = "button14";
-            this.button14.Size = new System.Drawing.Size(100, 35);
+            this.button14.Size = new System.Drawing.Size(110, 35);
             this.button14.TabIndex = 55;
             this.button14.Text = "Очистить";
             this.button14.UseVisualStyleBackColor = true;
@@ -386,10 +388,10 @@ namespace Lab4
             // 
             // button15
             // 
-            this.button15.Location = new System.Drawing.Point(943, 200);
+            this.button15.Location = new System.Drawing.Point(978, 232);
             this.button15.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.button15.Name = "button15";
-            this.button15.Size = new System.Drawing.Size(100, 35);
+            this.button15.Size = new System.Drawing.Size(111, 35);
             this.button15.TabIndex = 58;
             this.button15.Text = "Обновить";
             this.button15.UseVisualStyleBackColor = true;
@@ -397,28 +399,18 @@ namespace Lab4
             // 
             // button16
             // 
-            this.button16.Location = new System.Drawing.Point(943, 155);
+            this.button16.Location = new System.Drawing.Point(978, 176);
             this.button16.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.button16.Name = "button16";
-            this.button16.Size = new System.Drawing.Size(100, 35);
+            this.button16.Size = new System.Drawing.Size(110, 35);
             this.button16.TabIndex = 57;
             this.button16.Text = "Очистить";
             this.button16.UseVisualStyleBackColor = true;
             this.button16.Click += new System.EventHandler(this.button16_Click);
             // 
-            // listBox1
-            // 
-            this.listBox1.FormattingEnabled = true;
-            this.listBox1.ItemHeight = 20;
-            this.listBox1.Location = new System.Drawing.Point(573, 305);
-            this.listBox1.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
-            this.listBox1.Name = "listBox1";
-            this.listBox1.Size = new System.Drawing.Size(323, 364);
-            this.listBox1.TabIndex = 59;
-            // 
             // button17
             // 
-            this.button17.Location = new System.Drawing.Point(943, 469);
+            this.button17.Location = new System.Drawing.Point(965, 508);
             this.button17.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.button17.Name = "button17";
             this.button17.Size = new System.Drawing.Size(100, 35);
@@ -432,7 +424,7 @@ namespace Lab4
             this.button18.Location = new System.Drawing.Point(568, 903);
             this.button18.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.button18.Name = "button18";
-            this.button18.Size = new System.Drawing.Size(235, 35);
+            this.button18.Size = new System.Drawing.Size(279, 35);
             this.button18.TabIndex = 61;
             this.button18.Text = "Сохранить";
             this.button18.UseVisualStyleBackColor = true;
@@ -440,10 +432,10 @@ namespace Lab4
             // 
             // button19
             // 
-            this.button19.Location = new System.Drawing.Point(573, 260);
+            this.button19.Location = new System.Drawing.Point(573, 286);
             this.button19.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.button19.Name = "button19";
-            this.button19.Size = new System.Drawing.Size(230, 35);
+            this.button19.Size = new System.Drawing.Size(274, 35);
             this.button19.TabIndex = 62;
             this.button19.Text = "Сохранить";
             this.button19.UseVisualStyleBackColor = true;
@@ -451,7 +443,7 @@ namespace Lab4
             // 
             // button20
             // 
-            this.button20.Location = new System.Drawing.Point(815, 260);
+            this.button20.Location = new System.Drawing.Point(860, 286);
             this.button20.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.button20.Name = "button20";
             this.button20.Size = new System.Drawing.Size(228, 35);
@@ -462,20 +454,50 @@ namespace Lab4
             // 
             // button21
             // 
-            this.button21.Location = new System.Drawing.Point(815, 903);
+            this.button21.Location = new System.Drawing.Point(868, 903);
             this.button21.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.button21.Name = "button21";
-            this.button21.Size = new System.Drawing.Size(228, 35);
+            this.button21.Size = new System.Drawing.Size(230, 35);
             this.button21.TabIndex = 64;
             this.button21.Text = "Применить";
             this.button21.UseVisualStyleBackColor = true;
             this.button21.Click += new System.EventHandler(this.button21_Click);
             // 
+            // checkBox1
+            // 
+            this.checkBox1.AutoSize = true;
+            this.checkBox1.Location = new System.Drawing.Point(766, 123);
+            this.checkBox1.Name = "checkBox1";
+            this.checkBox1.Size = new System.Drawing.Size(94, 24);
+            this.checkBox1.TabIndex = 69;
+            this.checkBox1.Text = "isDeleted";
+            this.checkBox1.UseVisualStyleBackColor = true;
+            // 
+            // checkBox2
+            // 
+            this.checkBox2.AutoSize = true;
+            this.checkBox2.Location = new System.Drawing.Point(900, 731);
+            this.checkBox2.Name = "checkBox2";
+            this.checkBox2.Size = new System.Drawing.Size(94, 24);
+            this.checkBox2.TabIndex = 70;
+            this.checkBox2.Text = "IsDeleted";
+            this.checkBox2.UseVisualStyleBackColor = true;
+            // 
+            // listBox1
+            // 
+            this.listBox1.ItemHeight = 20;
+            this.listBox1.Location = new System.Drawing.Point(575, 349);
+            this.listBox1.Name = "listBox1";
+            this.listBox1.Size = new System.Drawing.Size(323, 344);
+            this.listBox1.TabIndex = 71;
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1067, 954);
+            this.ClientSize = new System.Drawing.Size(1101, 954);
+            this.Controls.Add(this.checkBox2);
+            this.Controls.Add(this.checkBox1);
             this.Controls.Add(this.button21);
             this.Controls.Add(this.button20);
             this.Controls.Add(this.button19);
@@ -558,12 +580,14 @@ namespace Lab4
         private System.Windows.Forms.Button button14;
         private System.Windows.Forms.Button button15;
         private System.Windows.Forms.Button button16;
-        private System.Windows.Forms.ListBox listBox1;
         private System.Windows.Forms.Button button17;
         private System.Windows.Forms.Button button18;
         private System.Windows.Forms.Button button19;
         private System.Windows.Forms.Button button20;
         private System.Windows.Forms.Button button21;
+        private CheckBox checkBox1;
+        private CheckBox checkBox2;
+        private ListBox listBox1;
     }
 }
 

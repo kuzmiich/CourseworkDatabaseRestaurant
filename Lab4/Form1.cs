@@ -35,39 +35,18 @@ namespace Lab4
             try
             {
                 var ds = new DataSet();
-                var regTable = ds.Tables.Add("Goods");
-                var idRegColumn = regTable.Columns.Add("Id");
-                idRegColumn.AutoIncrement = true;
-                idRegColumn.AutoIncrementSeed = 1;
-                idRegColumn.AutoIncrementStep = 1;
-                regTable.Columns.Add("ManufacturerId", typeof(int));
-                regTable.Columns.Add("GoodsName", typeof(string)).Unique = true;
-                regTable.Columns.Add("Price", typeof(decimal));
-                regTable.Columns.Add("Count", typeof(int));
-                regTable.Columns.Add("IsDeleted", typeof(byte)).DefaultValue = 0;
-                regTable.PrimaryKey = new DataColumn[] { idRegColumn };
+                SetUpManufacturers(ds);
+                SetUpGoods(ds);
+                SetUpRelations(ds);
 
-                var patTable = ds.Tables.Add("Manufacturers");
-                var idPatColumn = patTable.Columns.Add("Id");
-                idPatColumn.AutoIncrement = true;
-                idPatColumn.AutoIncrementSeed = 1;
-                idPatColumn.AutoIncrementStep = 1;
-                patTable.Columns.Add("ManufacturerName", typeof(string)).Unique = true;
-                patTable.Columns.Add("IsDeleted", typeof(byte)).DefaultValue = 0;
-                patTable.PrimaryKey = new DataColumn[] { idPatColumn };
+                _adapter = new SqlDataAdapter(QueryGetManufacturers, _connection);
+                var dataset = new DataSet();
+                _adapter.Fill(dataset, "Goods");
+                _adapter.SelectCommand.CommandText = QueryGetGoods;
+                _adapter.Fill(dataset, "Manufacturers");
 
-                var forKey = new DataRelation("GoodsManufacturers", 
-                                ds.Tables["Goods"].Columns["ManufacturerId"],
-                                ds.Tables["Manufacturers"].Columns["Id"]);
-                ds.Relations.Add(forKey);
-
-                _adapter = new SqlDataAdapter(QueryGetGoods, _connection);
-                _adapter.Fill(ds.Tables["Goods"]);
-                _adapter.SelectCommand.CommandText = QueryGetManufacturers;
-                _adapter.Fill(ds.Tables["Manufacturers"]);
-
-                dataGridView1.DataSource = ds.Tables["Manufacturers"];
-                dataGridView2.DataSource = ds.Tables["Goods"];
+                dataGridView1.DataSource = dataset.Tables["Goods"];
+                dataGridView2.DataSource = dataset.Tables["Manufacturers"];
             }
             finally
             {
@@ -79,23 +58,24 @@ namespace Lab4
         {
             textBox5.Text = $"{e.RowIndex + 1}";
             textBox1.Text = dataGridView1.Rows[e.RowIndex].Cells[2].Value.ToString();
-            textBox2.Text = dataGridView1.Rows[e.RowIndex].Cells[1].Value.ToString();
+            textBox2.Text = dataGridView1.Rows[e.RowIndex].Cells[4].Value.ToString();
             textBox3.Text = dataGridView1.Rows[e.RowIndex].Cells[3].Value.ToString();
-            textBox4.Text = dataGridView1.Rows[e.RowIndex].Cells[4].Value.ToString();
+            textBox4.Text = dataGridView1.Rows[e.RowIndex].Cells[1].Value.ToString();
+            checkBox1.Checked = bool.Parse(dataGridView1.Rows[e.RowIndex].Cells[5].Value.ToString());
         }
 
         private void dataGridView2_RowHeaderMouseClick(object sender, DataGridViewCellMouseEventArgs e)
         {
             textBox6.Text = $"{e.RowIndex + 1}";
             textBox7.Text = dataGridView2.Rows[e.RowIndex].Cells[1].Value.ToString();
+            checkBox2.Checked = bool.Parse(dataGridView2.Rows[e.RowIndex].Cells[2].Value.ToString());
         }
 
         private void button17_Click(object sender, EventArgs e)
         {
             listBox1.Items.Clear();
-            var table = dataGridView2.DataSource as DataTable;
 
-            if (table is null) return;
+            if (dataGridView2.DataSource is not DataTable table) return;
 
             foreach (DataRow row in table.Rows)
             {
@@ -110,17 +90,19 @@ namespace Lab4
 
         private void button16_Click(object sender, EventArgs e)
         {
-            textBox5.Text = "";
             textBox1.Text = "";
             textBox2.Text = "";
             textBox3.Text = "";
             textBox4.Text = "";
+            textBox5.Text = "";
+            checkBox1.Checked = false;
         }
 
         private void button14_Click(object sender, EventArgs e)
         {
             textBox6.Text = "";
             textBox7.Text = "";
+            checkBox2.Checked = false;
         }
 
         private void button19_Click(object sender, EventArgs e)
@@ -133,7 +115,6 @@ namespace Lab4
             try
             {
                 var adapter = new SqlDataAdapter(QueryGetGoods, _connection);
-
                 var builder = new SqlCommandBuilder(adapter);
 
                 builder.GetInsertCommand();
@@ -177,11 +158,12 @@ namespace Lab4
 
             if (table is null) return;
 
-            table.Rows.Add(new object[] {null, 
-                textBox2.Text, 
+            table.Rows.Add(new object[] {null,
+                int.Parse(textBox4.Text),
                 textBox1.Text,
-                textBox3.Text,
-                int.Parse(textBox4.Text)});
+                int.Parse(textBox2.Text),
+                decimal.Parse(textBox3.Text),
+                checkBox1.Checked});
         }
 
         private void button4_Click(object sender, EventArgs e)
@@ -193,10 +175,11 @@ namespace Lab4
             var index = int.Parse(textBox5.Text) - 1;
             var row = table.Rows[index];
 
-            row["GoodsName"] = textBox2.Text;
-            row["Price"] = textBox1.Text;
-            row["Count"] = textBox3.Text;
+            row["GoodsName"] = textBox1.Text;
+            row["Count"] = int.Parse(textBox2.Text);
+            row["Price"] = decimal.Parse(textBox3.Text);
             row["ManufacturerId"] = int.Parse(textBox4.Text);
+            row["IsDeleted"] = checkBox1.Checked;
         }
 
         private void button6_Click(object sender, EventArgs e)
@@ -234,7 +217,7 @@ namespace Lab4
 
             if (table is null) return;
 
-            table.Rows.Add(new object[] { null, textBox7.Text });
+            table.Rows.Add(new object[] { null, textBox7.Text, checkBox2.Checked });
         }
 
         private void button10_Click(object sender, EventArgs e)
@@ -244,10 +227,10 @@ namespace Lab4
             if (table is null) return;
 
             var index = int.Parse(textBox6.Text) - 1;
-
             var row = table.Rows[index];
 
             row["ManufacturerName"] = textBox7.Text;
+            row["IsDeleted"] = checkBox2.Checked;
         }
 
         private void button8_Click(object sender, EventArgs e)
@@ -342,6 +325,41 @@ namespace Lab4
         private void button7_Click(object sender, EventArgs e)
         {
             RejectChanges(dataGridView2, DataRowState.Deleted);
+        }
+
+        private static void SetUpGoods(DataSet ds)
+        {
+            var regTable = ds.Tables.Add("Goods");
+            var idRegColumn = regTable.Columns.Add("Id");
+            idRegColumn.AutoIncrement = true;
+            idRegColumn.AutoIncrementSeed = 1;
+            idRegColumn.AutoIncrementStep = 1;
+            regTable.Columns.Add("ManufacturerId", typeof(int));
+            regTable.Columns.Add("GoodsName", typeof(string)).Unique = true;
+            regTable.Columns.Add("Price", typeof(decimal));
+            regTable.Columns.Add("Count", typeof(int));
+            regTable.Columns.Add("IsDeleted", typeof(byte)).DefaultValue = 0;
+            regTable.PrimaryKey = new DataColumn[] { idRegColumn };
+        }
+
+        private static void SetUpManufacturers(DataSet ds)
+        {
+            var patTable = ds.Tables.Add("Manufacturers");
+            var idPatColumn = patTable.Columns.Add("Id");
+            idPatColumn.AutoIncrement = true;
+            idPatColumn.AutoIncrementSeed = 1;
+            idPatColumn.AutoIncrementStep = 1;
+            patTable.Columns.Add("ManufacturerName", typeof(string)).Unique = true;
+            patTable.Columns.Add("IsDeleted", typeof(byte)).DefaultValue = 0;
+            patTable.PrimaryKey = new DataColumn[] { idPatColumn };
+        }
+
+        private static void SetUpRelations(DataSet ds)
+        {
+            var forKey = new DataRelation("Goods_Manufacturers",
+                                            ds.Tables["Goods"].Columns["ManufacturerId"],
+                                            ds.Tables["Manufacturers"].Columns["Id"]);
+            ds.Relations.Add(forKey);
         }
     }
 }

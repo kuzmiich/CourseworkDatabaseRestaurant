@@ -1,0 +1,50 @@
+﻿<?xml version="1.0" encoding="utf-8"?><Database Name="Restaurant.Database" Class="DataClassesDataContext" xmlns="http://schemas.microsoft.com/linqtosql/dbml/2007">
+  <Connection Mode="AppSettings" ConnectionString="Data Source=(localdb)\ProjectsV13;Initial Catalog=Restaurant.Database;Integrated Security=True" SettingsObjectName="Lab10.Properties.Settings" SettingsPropertyName="Restaurant_DatabaseConnectionString" Provider="System.Data.SqlClient" />
+  <Table Name="dbo.Delivery" Member="Deliveries">
+    <Type Name="Delivery">
+      <Column Name="Id" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="DeliveryName" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
+      <Association Name="Delivery_GoodsLog" Member="GoodsLogs" ThisKey="Id" OtherKey="DeliveryId" Type="GoodsLog" />
+    </Type>
+  </Table>
+  <Table Name="dbo.Goods" Member="Goods">
+    <Type Name="Good">
+      <Column Name="Id" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="ManufacturerId" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="GoodsName" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="Price" Type="System.Decimal" DbType="Decimal(18,2) NOT NULL" CanBeNull="false" />
+      <Column Name="Count" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="IsDeleted" Type="System.Boolean" DbType="Bit NOT NULL" CanBeNull="false" />
+      <Association Name="Good_GoodsLog" Member="GoodsLogs" ThisKey="Id" OtherKey="GoodsId" Type="GoodsLog" />
+      <Association Name="Manufacturer_Good" Member="Manufacturer" ThisKey="ManufacturerId" OtherKey="Id" Type="Manufacturer" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.Manufacturers" Member="Manufacturers">
+    <Type Name="Manufacturer">
+      <Column Name="Id" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="ManufacturerName" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="IsDeleted" Type="System.Boolean" DbType="Bit NOT NULL" CanBeNull="false" />
+      <Association Name="Manufacturer_Good" Member="Goods" ThisKey="Id" OtherKey="ManufacturerId" Type="Good" />
+    </Type>
+  </Table>
+  <Table Name="dbo.Providers" Member="Providers">
+    <Type Name="Provider">
+      <Column Name="Id" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="ProviderName" Type="System.String" DbType="NVarChar(40) NOT NULL" CanBeNull="false" />
+      <Column Name="Description" Type="System.String" DbType="NVarChar(100)" CanBeNull="true" />
+      <Association Name="Provider_GoodsLog" Member="GoodsLogs" ThisKey="Id" OtherKey="ProviderId" Type="GoodsLog" />
+    </Type>
+  </Table>
+  <Table Name="dbo.GoodsLogs" Member="GoodsLogs">
+    <Type Name="GoodsLog">
+      <Column Name="Id" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="GoodsId" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="ProviderId" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="DeliveryId" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="DateOfRegistration" Type="System.DateTime" DbType="DateTime NOT NULL" CanBeNull="false" />
+      <Association Name="Delivery_GoodsLog" Member="Delivery" ThisKey="DeliveryId" OtherKey="Id" Type="Delivery" IsForeignKey="true" DeleteRule="CASCADE" DeleteOnNull="true" />
+      <Association Name="Good_GoodsLog" Member="Good" ThisKey="GoodsId" OtherKey="Id" Type="Good" IsForeignKey="true" DeleteRule="CASCADE" DeleteOnNull="true" />
+      <Association Name="Provider_GoodsLog" Member="Provider" ThisKey="ProviderId" OtherKey="Id" Type="Provider" IsForeignKey="true" DeleteRule="CASCADE" DeleteOnNull="true" />
+    </Type>
+  </Table>
+</Database>

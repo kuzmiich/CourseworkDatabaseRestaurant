@@ -79,11 +79,10 @@ namespace Lab3
             booksTable.PrimaryKey = new DataColumn[] { booksTable.Columns["Id"] };
 
             booksTable.NewRow();
-            booksTable.Rows.Add(new object[] { null, "Война и мир", 200 });
             booksTable.Rows.Add(new object[] { null, "Отцы и дети", 170 });
+            booksTable.Rows.Add(new object[] { null, "Война и мир", 200 });
+            booksTable.Rows.Add(new object[] { null, "Книга", 270 });
             booksTable.Rows.Add(new object[] { null, "Преступление и наказание", 270 });
-            booksTable.Rows.Add(new object[] { null, "Идиот", 270 });
-            booksTable.Rows.Add(new object[] { null, "Арзипелаг ГУЛАГ", 3000 });
 
             foreach (DataRow r in booksTable.Rows)
             {
