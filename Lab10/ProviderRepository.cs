@@ -12,7 +12,7 @@ namespace Lab10
             _context = context;
         }
 
-        public Table<Provider> GetAll() => _context.Providers;
+        public Table<Provider> GetAll() => _context.GetTable<Provider>();
 
         public Provider Create(Provider entity)
         {

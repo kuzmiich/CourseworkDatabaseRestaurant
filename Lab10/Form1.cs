@@ -4,6 +4,7 @@ using System.Configuration;
 using System.Data;
 using System.Data.Linq;
 using System.Linq;
+using System.Threading;
 using System.Windows.Forms;
 
 namespace Lab10
@@ -64,8 +65,10 @@ namespace Lab10
         private void ButtonAdd_Click(object sender, EventArgs e)
         {
             _repository.Create(GetProviderFromForm());
+
             _repository.SubmitChanges();
-            UpdateDataGridView(_repository.GetAll().Context.GetTable<Provider>());
+
+            UpdateDataGridView(_repository.GetAll());
         }
 
         private void ButtonChange_Click(object sender, EventArgs e)
@@ -77,6 +80,7 @@ namespace Lab10
 
             _repository.Update(GetProviderFromForm());
             _repository.SubmitChanges();
+
             UpdateDataGridView(_repository.GetAll());
         }
         private void ButtonDelete_Click(object sender, EventArgs e)
@@ -87,6 +91,7 @@ namespace Lab10
 
             _repository.Delete(deletedProvider);
             _repository.SubmitChanges();
+
             UpdateDataGridView(_repository.GetAll());
         }
 
