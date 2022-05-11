@@ -90,4 +90,7 @@
     <Build Include="Procedures\GoodsInsertData.sql" />
     <Build Include="Functions\GetGoodsTotalPrice.sql" />
   </ItemGroup>
+  <ItemGroup>
+    <None Include="Functions\GetGoodsByName.sql" />
+  </ItemGroup>
 </Project>
