@@ -91,7 +91,6 @@ namespace Lab3
                     result.Append(cell + " ");
 
                 list1.Items.Add(result);
-
             }
         }
 

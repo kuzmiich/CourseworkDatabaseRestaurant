@@ -60,21 +60,21 @@ namespace Lab5
             var view4 = new DataView(_dataset.Tables["Goods"]);
             if (cb_Filter1.SelectedIndex == 0 && cb_Filter2.SelectedIndex == 1)
             {
-                view4.RowFilter = "ManufacturerId=7";
+                view4.RowFilter = "ManufacturerId=3";
                 dataGridViewFilter.DataSource = view4;
-                label1.Text = "Filter = manufacturer ID = 7";
+                label1.Text = "Filter = manufacturer ID = 3";
             }
             if (cb_Filter1.SelectedIndex == 1 && cb_Filter2.SelectedIndex == 0)
             {
-                view4.RowFilter = "Price=5000";
+                view4.RowFilter = "Price=10";
                 dataGridViewFilter.DataSource = view4;
-                label1.Text = "Filter = Price = 5000";
+                label1.Text = "Filter = Price = 10";
             }
             if (cb_Filter1.SelectedIndex == 0 && cb_Filter2.SelectedIndex == 0)
             {
-                view4.RowFilter = "ManufacturerId=7 and Price=5000";
+                view4.RowFilter = "ManufacturerId=3 and Price=10";
                 dataGridViewFilter.DataSource = view4;
-                label1.Text = "Filter = manufacturer ID = 7 and price = 5000";
+                label1.Text = "Filter = manufacturer ID = 3 and price = 10";
             }
             if (cb_Filter1.SelectedIndex == 1 && cb_Filter2.SelectedIndex == 1)
             {

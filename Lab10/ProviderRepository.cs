@@ -1,5 +1,7 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.Data.Linq;
+using System.Linq;
 
 namespace Lab10
 {
@@ -20,10 +22,12 @@ namespace Lab10
             return entity;
         }
 
-        public Provider Update(Provider entity)
+        public void Update(Provider entity)
         {
-            _context.Providers.Attach(entity);
-            return entity;
+            var provider = GetAll().Single(p => p.Id == entity.Id);
+            // this logic need to update current provider
+            provider.ProviderName = entity.ProviderName;
+            provider.Description = entity.Description;
         }
 
         public Provider Delete(Provider entity)

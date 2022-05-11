@@ -34,5 +34,10 @@ namespace Lab6_9
         {
             new Form5().Show();
         }
+
+        private void button6_Click(object sender, EventArgs e)
+        {
+            new ReportForm().Show();
+        }
     }
 }

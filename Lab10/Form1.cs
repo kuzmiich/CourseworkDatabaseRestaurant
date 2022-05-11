@@ -28,6 +28,7 @@ namespace Lab10
 
         private void dataGridView1_RowHeaderMouseClick(object sender, DataGridViewCellMouseEventArgs e)
         {
+            textBox4.Text = dataGridView1.Rows[e.RowIndex].Cells[0].Value.ToString();
             textBox2.Text = dataGridView1.Rows[e.RowIndex].Cells[1].Value.ToString();
             textBox3.Text = dataGridView1.Rows[e.RowIndex].Cells[2].Value.ToString();
         }
@@ -58,7 +59,10 @@ namespace Lab10
         private void ButtonFilter_Click(object sender, EventArgs e)
         {
             var filterCriteria = textBox1.Text;
-            var filteredProviders = _repository.GetAll().Where(provider => filterCriteria != string.Empty ? provider.ProviderName == filterCriteria : true);
+            var filteredProviders = _repository.GetAll().Where(provider => filterCriteria != string.Empty ? 
+            provider.ProviderName == filterCriteria : 
+            true);
+
             UpdateDataGridView(filteredProviders);
         }
 
@@ -73,12 +77,15 @@ namespace Lab10
 
         private void ButtonChange_Click(object sender, EventArgs e)
         {
-            var newProvider = GetProviderFromForm();
-            var updatedProvider = _repository.GetAll()
-                .Where(p => p.ProviderName == newProvider.ProviderName ||
-                p.Description == newProvider.Description);
+            var newProvider = new Provider()
+            {
+                Id = int.Parse(textBox4.Text),
+                ProviderName = textBox2.Text,
+                Description = textBox3.Text
+            };
+            _repository.Update(newProvider);
+            
 
-            _repository.Update(GetProviderFromForm());
             _repository.SubmitChanges();
 
             UpdateDataGridView(_repository.GetAll());
