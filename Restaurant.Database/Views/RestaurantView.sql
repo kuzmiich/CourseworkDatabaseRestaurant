@@ -2,12 +2,14 @@
 CREATE VIEW RestaurantView 
 AS 
 SELECT      
-	GoodsLogs.DateOfRegistration,
 	Delivery.DeliveryName,
 	Manufacturers.ManufacturerName, 
 	Goods.GoodsName,
 	Goods.Count AS GoodsCount,
-	Providers.ProviderName
+	Goods.Price AS GoodsPrice,
+	Providers.ProviderName,
+	Providers.Description AS ProviderDescription,
+	GoodsLogs.DateOfRegistration
 FROM GoodsLogs 
 	INNER JOIN Delivery ON Delivery.Id = GoodsLogs.DeliveryId 
 	INNER JOIN Goods ON GoodsLogs.GoodsId = Goods.Id 
