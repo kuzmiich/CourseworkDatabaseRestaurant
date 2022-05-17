@@ -107,7 +107,6 @@ namespace Lab3
 
                 list1.Items.Add(result);
             }
-            _dataset.Clear();
         }
     }
 }
