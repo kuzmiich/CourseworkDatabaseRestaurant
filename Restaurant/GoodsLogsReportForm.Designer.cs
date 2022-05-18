@@ -31,8 +31,9 @@ namespace Restaurant
         {
             this.components = new System.ComponentModel.Container();
             Microsoft.Reporting.WinForms.ReportDataSource reportDataSource1 = new Microsoft.Reporting.WinForms.ReportDataSource();
-            this.GoodsBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.RestaurantViewBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this._Restaurant_DatabaseDataSet = new Restaurant._Restaurant_DatabaseDataSet();
+            this.GoodsBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.reportViewer1 = new Microsoft.Reporting.WinForms.ReportViewer();
             this.GoodsTableAdapter = new Restaurant._Restaurant_DatabaseDataSetTableAdapters.GoodsTableAdapter();
             this.dateTimePicker1 = new System.Windows.Forms.DateTimePicker();
@@ -40,22 +41,26 @@ namespace Restaurant
             this.button1 = new System.Windows.Forms.Button();
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
-            this.RestaurantViewBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.RestaurantViewTableAdapter = new Restaurant._Restaurant_DatabaseDataSetTableAdapters.RestaurantViewTableAdapter();
-            ((System.ComponentModel.ISupportInitialize)(this.GoodsBindingSource)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this._Restaurant_DatabaseDataSet)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.RestaurantViewBindingSource)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this._Restaurant_DatabaseDataSet)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.GoodsBindingSource)).BeginInit();
             this.SuspendLayout();
             // 
-            // GoodsBindingSource
+            // RestaurantViewBindingSource
             // 
-            this.GoodsBindingSource.DataMember = "Goods";
-            this.GoodsBindingSource.DataSource = this._Restaurant_DatabaseDataSet;
+            this.RestaurantViewBindingSource.DataMember = "RestaurantView";
+            this.RestaurantViewBindingSource.DataSource = this._Restaurant_DatabaseDataSet;
             // 
             // _Restaurant_DatabaseDataSet
             // 
             this._Restaurant_DatabaseDataSet.DataSetName = "_Restaurant_DatabaseDataSet";
             this._Restaurant_DatabaseDataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
+            // 
+            // GoodsBindingSource
+            // 
+            this.GoodsBindingSource.DataMember = "Goods";
+            this.GoodsBindingSource.DataSource = this._Restaurant_DatabaseDataSet;
             // 
             // reportViewer1
             // 
@@ -92,13 +97,13 @@ namespace Restaurant
             this.dateTimePicker2.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
             this.dateTimePicker2.Location = new System.Drawing.Point(231, 7);
             this.dateTimePicker2.Name = "dateTimePicker2";
-            this.dateTimePicker2.Size = new System.Drawing.Size(96, 22);
+            this.dateTimePicker2.Size = new System.Drawing.Size(82, 22);
             this.dateTimePicker2.TabIndex = 1;
             this.dateTimePicker2.Value = new System.DateTime(2010, 1, 15, 0, 0, 0, 0);
             // 
             // button1
             // 
-            this.button1.Location = new System.Drawing.Point(333, 6);
+            this.button1.Location = new System.Drawing.Point(339, 7);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(100, 23);
             this.button1.TabIndex = 3;
@@ -124,11 +129,6 @@ namespace Restaurant
             this.label2.TabIndex = 5;
             this.label2.Text = "FromDate";
             // 
-            // RestaurantViewBindingSource
-            // 
-            this.RestaurantViewBindingSource.DataMember = "RestaurantView";
-            this.RestaurantViewBindingSource.DataSource = this._Restaurant_DatabaseDataSet;
-            // 
             // RestaurantViewTableAdapter
             // 
             this.RestaurantViewTableAdapter.ClearBeforeFill = true;
@@ -148,9 +148,9 @@ namespace Restaurant
             this.Name = "GoodsLogsReportForm";
             this.Text = "GoodsReportForm";
             this.Load += new System.EventHandler(this.GoodsReportForm_Load);
-            ((System.ComponentModel.ISupportInitialize)(this.GoodsBindingSource)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this._Restaurant_DatabaseDataSet)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.RestaurantViewBindingSource)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this._Restaurant_DatabaseDataSet)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.GoodsBindingSource)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 

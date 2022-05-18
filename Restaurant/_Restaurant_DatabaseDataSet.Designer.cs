@@ -2853,6 +2853,8 @@ namespace Restaurant {
             
             private global::System.Data.DataColumn columnProviderName;
             
+            private global::System.Data.DataColumn columnGoodsPrice;
+            
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
             public RestaurantViewDataTable() {
@@ -2936,6 +2938,14 @@ namespace Restaurant {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public global::System.Data.DataColumn GoodsPriceColumn {
+                get {
+                    return this.columnGoodsPrice;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
             [global::System.ComponentModel.Browsable(false)]
             public int Count {
                 get {
@@ -2971,7 +2981,7 @@ namespace Restaurant {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public RestaurantViewRow AddRestaurantViewRow(System.DateTime DateOfRegistration, string DeliveryName, string ManufacturerName, string GoodsName, int GoodsCount, string ProviderName) {
+            public RestaurantViewRow AddRestaurantViewRow(System.DateTime DateOfRegistration, string DeliveryName, string ManufacturerName, string GoodsName, int GoodsCount, string ProviderName, decimal GoodsPrice) {
                 RestaurantViewRow rowRestaurantViewRow = ((RestaurantViewRow)(this.NewRow()));
                 object[] columnValuesArray = new object[] {
                         DateOfRegistration,
@@ -2979,7 +2989,8 @@ namespace Restaurant {
                         ManufacturerName,
                         GoodsName,
                         GoodsCount,
-                        ProviderName};
+                        ProviderName,
+                        GoodsPrice};
                 rowRestaurantViewRow.ItemArray = columnValuesArray;
                 this.Rows.Add(rowRestaurantViewRow);
                 return rowRestaurantViewRow;
@@ -3008,6 +3019,7 @@ namespace Restaurant {
                 this.columnGoodsName = base.Columns["GoodsName"];
                 this.columnGoodsCount = base.Columns["GoodsCount"];
                 this.columnProviderName = base.Columns["ProviderName"];
+                this.columnGoodsPrice = base.Columns["GoodsPrice"];
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -3025,6 +3037,8 @@ namespace Restaurant {
                 base.Columns.Add(this.columnGoodsCount);
                 this.columnProviderName = new global::System.Data.DataColumn("ProviderName", typeof(string), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnProviderName);
+                this.columnGoodsPrice = new global::System.Data.DataColumn("GoodsPrice", typeof(decimal), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnGoodsPrice);
                 this.columnDateOfRegistration.AllowDBNull = false;
                 this.columnDeliveryName.AllowDBNull = false;
                 this.columnDeliveryName.MaxLength = 50;
@@ -3035,6 +3049,7 @@ namespace Restaurant {
                 this.columnGoodsCount.AllowDBNull = false;
                 this.columnProviderName.AllowDBNull = false;
                 this.columnProviderName.MaxLength = 40;
+                this.columnGoodsPrice.AllowDBNull = false;
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -4996,6 +5011,17 @@ namespace Restaurant {
                 }
                 set {
                     this[this.tableRestaurantView.ProviderNameColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public decimal GoodsPrice {
+                get {
+                    return ((decimal)(this[this.tableRestaurantView.GoodsPriceColumn]));
+                }
+                set {
+                    this[this.tableRestaurantView.GoodsPriceColumn] = value;
                 }
             }
         }
@@ -7875,6 +7901,7 @@ SELECT Id, ProviderName, Description FROM Providers WHERE (Id = @Id)";
             tableMapping.ColumnMappings.Add("GoodsName", "GoodsName");
             tableMapping.ColumnMappings.Add("GoodsCount", "GoodsCount");
             tableMapping.ColumnMappings.Add("ProviderName", "ProviderName");
+            tableMapping.ColumnMappings.Add("GoodsPrice", "GoodsPrice");
             this._adapter.TableMappings.Add(tableMapping);
         }
         
@@ -7892,7 +7919,7 @@ SELECT Id, ProviderName, Description FROM Providers WHERE (Id = @Id)";
             this._commandCollection[0] = new global::System.Data.SqlClient.SqlCommand();
             this._commandCollection[0].Connection = this.Connection;
             this._commandCollection[0].CommandText = "SELECT DateOfRegistration, DeliveryName, ManufacturerName, GoodsName, GoodsCount," +
-                " ProviderName FROM dbo.RestaurantView";
+                " GoodsPrice, ProviderName FROM dbo.RestaurantView";
             this._commandCollection[0].CommandType = global::System.Data.CommandType.Text;
         }
         
