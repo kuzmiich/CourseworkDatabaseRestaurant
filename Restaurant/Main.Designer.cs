@@ -47,7 +47,7 @@ namespace Restaurant
             | System.Windows.Forms.AnchorStyles.Right)));
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.label1.Location = new System.Drawing.Point(183, 9);
+            this.label1.Location = new System.Drawing.Point(159, 9);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(195, 25);
             this.label1.TabIndex = 11;
@@ -129,7 +129,6 @@ namespace Restaurant
             this.groupBox2.Size = new System.Drawing.Size(484, 250);
             this.groupBox2.TabIndex = 13;
             this.groupBox2.TabStop = false;
-            this.groupBox2.Text = "Tables";
             // 
             // Main
             // 

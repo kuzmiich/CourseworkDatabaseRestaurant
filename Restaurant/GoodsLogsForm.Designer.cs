@@ -45,12 +45,12 @@ namespace Restaurant
             this.button9 = new System.Windows.Forms.Button();
             this.comboBox1 = new System.Windows.Forms.ComboBox();
             this.goodsLogsBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.goodsBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.comboBox2 = new System.Windows.Forms.ComboBox();
+            this.providersBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.comboBox3 = new System.Windows.Forms.ComboBox();
             this.deliveryBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.providersTableAdapter = new Restaurant._Restaurant_DatabaseDataSetTableAdapters.ProvidersTableAdapter();
-            this.providersBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.goodsBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.goodsTableAdapter = new Restaurant._Restaurant_DatabaseDataSetTableAdapters.GoodsTableAdapter();
             this.restaurantDatabaseDataSetBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.tableAdapterManager = new Restaurant._Restaurant_DatabaseDataSetTableAdapters.TableAdapterManager();
@@ -68,22 +68,22 @@ namespace Restaurant
             this.button10 = new System.Windows.Forms.Button();
             this.button11 = new System.Windows.Forms.Button();
             this.restaurantViewDataGridView = new System.Windows.Forms.DataGridView();
-            this.dateOfRegistrationDateTimePicker = new System.Windows.Forms.DateTimePicker();
             this.dataGridViewTextBoxColumn7 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn8 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn9 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn10 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn11 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn12 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dateOfRegistrationDateTimePicker = new System.Windows.Forms.DateTimePicker();
             goodsIdLabel = new System.Windows.Forms.Label();
             providerIdLabel = new System.Windows.Forms.Label();
             deliveryIdLabel = new System.Windows.Forms.Label();
             dateOfRegistrationLabel = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this._Restaurant_DatabaseDataSet)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.goodsLogsBindingSource)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.deliveryBindingSource)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.providersBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.goodsBindingSource)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.providersBindingSource)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.deliveryBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.restaurantDatabaseDataSetBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.restaurantViewBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.restaurantViewDataGridView)).BeginInit();
@@ -232,6 +232,11 @@ namespace Restaurant
             this.goodsLogsBindingSource.DataMember = "GoodsLogs";
             this.goodsLogsBindingSource.DataSource = this._Restaurant_DatabaseDataSet;
             // 
+            // goodsBindingSource
+            // 
+            this.goodsBindingSource.DataMember = "Goods";
+            this.goodsBindingSource.DataSource = this._Restaurant_DatabaseDataSet;
+            // 
             // comboBox2
             // 
             this.comboBox2.DataBindings.Add(new System.Windows.Forms.Binding("SelectedValue", this.goodsLogsBindingSource, "ProviderId", true));
@@ -244,6 +249,11 @@ namespace Restaurant
             this.comboBox2.Size = new System.Drawing.Size(159, 24);
             this.comboBox2.TabIndex = 30;
             this.comboBox2.ValueMember = "Id";
+            // 
+            // providersBindingSource
+            // 
+            this.providersBindingSource.DataMember = "Providers";
+            this.providersBindingSource.DataSource = this._Restaurant_DatabaseDataSet;
             // 
             // comboBox3
             // 
@@ -266,16 +276,6 @@ namespace Restaurant
             // providersTableAdapter
             // 
             this.providersTableAdapter.ClearBeforeFill = true;
-            // 
-            // providersBindingSource
-            // 
-            this.providersBindingSource.DataMember = "Providers";
-            this.providersBindingSource.DataSource = this._Restaurant_DatabaseDataSet;
-            // 
-            // goodsBindingSource
-            // 
-            this.goodsBindingSource.DataMember = "Goods";
-            this.goodsBindingSource.DataSource = this._Restaurant_DatabaseDataSet;
             // 
             // goodsTableAdapter
             // 
@@ -412,14 +412,6 @@ namespace Restaurant
             this.restaurantViewDataGridView.Size = new System.Drawing.Size(929, 306);
             this.restaurantViewDataGridView.TabIndex = 34;
             // 
-            // dateOfRegistrationDateTimePicker
-            // 
-            this.dateOfRegistrationDateTimePicker.DataBindings.Add(new System.Windows.Forms.Binding("Value", this.goodsLogsBindingSource, "DateOfRegistration", true));
-            this.dateOfRegistrationDateTimePicker.Location = new System.Drawing.Point(172, 153);
-            this.dateOfRegistrationDateTimePicker.Name = "dateOfRegistrationDateTimePicker";
-            this.dateOfRegistrationDateTimePicker.Size = new System.Drawing.Size(248, 22);
-            this.dateOfRegistrationDateTimePicker.TabIndex = 35;
-            // 
             // dataGridViewTextBoxColumn7
             // 
             this.dataGridViewTextBoxColumn7.DataPropertyName = "DateOfRegistration";
@@ -468,6 +460,14 @@ namespace Restaurant
             this.dataGridViewTextBoxColumn12.Name = "dataGridViewTextBoxColumn12";
             this.dataGridViewTextBoxColumn12.Width = 125;
             // 
+            // dateOfRegistrationDateTimePicker
+            // 
+            this.dateOfRegistrationDateTimePicker.DataBindings.Add(new System.Windows.Forms.Binding("Value", this.goodsLogsBindingSource, "DateOfRegistration", true));
+            this.dateOfRegistrationDateTimePicker.Location = new System.Drawing.Point(172, 153);
+            this.dateOfRegistrationDateTimePicker.Name = "dateOfRegistrationDateTimePicker";
+            this.dateOfRegistrationDateTimePicker.Size = new System.Drawing.Size(248, 22);
+            this.dateOfRegistrationDateTimePicker.TabIndex = 35;
+            // 
             // GoodsLogsForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -499,9 +499,9 @@ namespace Restaurant
             this.Load += new System.EventHandler(this.GoodsLogsForm_Load);
             ((System.ComponentModel.ISupportInitialize)(this._Restaurant_DatabaseDataSet)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.goodsLogsBindingSource)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.deliveryBindingSource)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.providersBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.goodsBindingSource)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.providersBindingSource)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.deliveryBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.restaurantDatabaseDataSetBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.restaurantViewBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.restaurantViewDataGridView)).EndInit();

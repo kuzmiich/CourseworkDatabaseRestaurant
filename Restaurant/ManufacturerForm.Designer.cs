@@ -53,6 +53,8 @@ namespace Restaurant
             this.manufacturerNameTextBox = new System.Windows.Forms.TextBox();
             this.isDeletedCheckBox = new System.Windows.Forms.CheckBox();
             this.manufacturersDataGridView = new System.Windows.Forms.DataGridView();
+            this.dataGridViewTextBoxColumn2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewCheckBoxColumn1 = new System.Windows.Forms.DataGridViewCheckBoxColumn();
             this.button8 = new System.Windows.Forms.Button();
             this.button7 = new System.Windows.Forms.Button();
             this.button6 = new System.Windows.Forms.Button();
@@ -61,8 +63,6 @@ namespace Restaurant
             this.button3 = new System.Windows.Forms.Button();
             this.button2 = new System.Windows.Forms.Button();
             this.button1 = new System.Windows.Forms.Button();
-            this.dataGridViewTextBoxColumn2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewCheckBoxColumn1 = new System.Windows.Forms.DataGridViewCheckBoxColumn();
             manufacturerNameLabel = new System.Windows.Forms.Label();
             isDeletedLabel = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this._Restaurant_DatabaseDataSet)).BeginInit();
@@ -141,7 +141,7 @@ namespace Restaurant
             this.manufacturersBindingNavigator.MovePreviousItem = this.bindingNavigatorMovePreviousItem;
             this.manufacturersBindingNavigator.Name = "manufacturersBindingNavigator";
             this.manufacturersBindingNavigator.PositionItem = this.bindingNavigatorPositionItem;
-            this.manufacturersBindingNavigator.Size = new System.Drawing.Size(882, 27);
+            this.manufacturersBindingNavigator.Size = new System.Drawing.Size(882, 31);
             this.manufacturersBindingNavigator.TabIndex = 0;
             this.manufacturersBindingNavigator.Text = "bindingNavigator1";
             // 
@@ -151,7 +151,7 @@ namespace Restaurant
             this.bindingNavigatorAddNewItem.Image = ((System.Drawing.Image)(resources.GetObject("bindingNavigatorAddNewItem.Image")));
             this.bindingNavigatorAddNewItem.Name = "bindingNavigatorAddNewItem";
             this.bindingNavigatorAddNewItem.RightToLeftAutoMirrorImage = true;
-            this.bindingNavigatorAddNewItem.Size = new System.Drawing.Size(29, 24);
+            this.bindingNavigatorAddNewItem.Size = new System.Drawing.Size(29, 28);
             this.bindingNavigatorAddNewItem.Text = "Add new";
             // 
             // bindingNavigatorCountItem
@@ -275,6 +275,22 @@ namespace Restaurant
             this.manufacturersDataGridView.Size = new System.Drawing.Size(369, 370);
             this.manufacturersDataGridView.TabIndex = 5;
             // 
+            // dataGridViewTextBoxColumn2
+            // 
+            this.dataGridViewTextBoxColumn2.DataPropertyName = "ManufacturerName";
+            this.dataGridViewTextBoxColumn2.HeaderText = "ManufacturerName";
+            this.dataGridViewTextBoxColumn2.MinimumWidth = 6;
+            this.dataGridViewTextBoxColumn2.Name = "dataGridViewTextBoxColumn2";
+            this.dataGridViewTextBoxColumn2.Width = 158;
+            // 
+            // dataGridViewCheckBoxColumn1
+            // 
+            this.dataGridViewCheckBoxColumn1.DataPropertyName = "IsDeleted";
+            this.dataGridViewCheckBoxColumn1.HeaderText = "IsDeleted";
+            this.dataGridViewCheckBoxColumn1.MinimumWidth = 6;
+            this.dataGridViewCheckBoxColumn1.Name = "dataGridViewCheckBoxColumn1";
+            this.dataGridViewCheckBoxColumn1.Width = 73;
+            // 
             // button8
             // 
             this.button8.Location = new System.Drawing.Point(385, 377);
@@ -354,22 +370,6 @@ namespace Restaurant
             this.button1.Text = "Move First";
             this.button1.UseVisualStyleBackColor = true;
             this.button1.Click += new System.EventHandler(this.button1_Click);
-            // 
-            // dataGridViewTextBoxColumn2
-            // 
-            this.dataGridViewTextBoxColumn2.DataPropertyName = "ManufacturerName";
-            this.dataGridViewTextBoxColumn2.HeaderText = "ManufacturerName";
-            this.dataGridViewTextBoxColumn2.MinimumWidth = 6;
-            this.dataGridViewTextBoxColumn2.Name = "dataGridViewTextBoxColumn2";
-            this.dataGridViewTextBoxColumn2.Width = 158;
-            // 
-            // dataGridViewCheckBoxColumn1
-            // 
-            this.dataGridViewCheckBoxColumn1.DataPropertyName = "IsDeleted";
-            this.dataGridViewCheckBoxColumn1.HeaderText = "IsDeleted";
-            this.dataGridViewCheckBoxColumn1.MinimumWidth = 6;
-            this.dataGridViewCheckBoxColumn1.Name = "dataGridViewCheckBoxColumn1";
-            this.dataGridViewCheckBoxColumn1.Width = 73;
             // 
             // ManufacturerForm
             // 
