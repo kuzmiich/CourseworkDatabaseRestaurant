@@ -89,5 +89,12 @@ namespace Restaurant
             manufacturersTableAdapter.Fill(_Restaurant_DatabaseDataSet.Manufacturers);
             comboBox1.SelectedItem = comboBox1.Items.Cast<DataRowView>().Single(c => (int)c.Row["Id"] == id);
         }
+
+        private void button10_Click(object sender, EventArgs e)
+        {
+            var goodsDataRowView = goodsBindingSource.Current as DataRowView;
+            var manufacturerDataRowView = manufacturersBindingSource1.Current as DataRowView;
+            new GoodsReportForm(goodsDataRowView, manufacturerDataRowView).Show();
+        }
     }
 }

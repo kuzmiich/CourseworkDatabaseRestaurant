@@ -35,7 +35,6 @@ namespace Restaurant
             this.button3 = new System.Windows.Forms.Button();
             this.button2 = new System.Windows.Forms.Button();
             this.button1 = new System.Windows.Forms.Button();
-            this.button6 = new System.Windows.Forms.Button();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
             this.groupBox2.SuspendLayout();
             this.SuspendLayout();
@@ -75,7 +74,7 @@ namespace Restaurant
             // 
             // button3
             // 
-            this.button3.Location = new System.Drawing.Point(6, 172);
+            this.button3.Location = new System.Drawing.Point(124, 172);
             this.button3.Name = "button3";
             this.button3.Size = new System.Drawing.Size(238, 60);
             this.button3.TabIndex = 8;
@@ -103,22 +102,11 @@ namespace Restaurant
             this.button1.UseVisualStyleBackColor = true;
             this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
-            // button6
-            // 
-            this.button6.Location = new System.Drawing.Point(250, 172);
-            this.button6.Name = "button6";
-            this.button6.Size = new System.Drawing.Size(228, 60);
-            this.button6.TabIndex = 0;
-            this.button6.Text = "Restaurant Information By Date Interval";
-            this.button6.UseVisualStyleBackColor = true;
-            this.button6.Click += new System.EventHandler(this.button6_Click);
-            // 
             // groupBox2
             // 
             this.groupBox2.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left)));
             this.groupBox2.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
-            this.groupBox2.Controls.Add(this.button6);
             this.groupBox2.Controls.Add(this.button1);
             this.groupBox2.Controls.Add(this.button3);
             this.groupBox2.Controls.Add(this.button2);
@@ -154,7 +142,6 @@ namespace Restaurant
         private System.Windows.Forms.Button button3;
         private System.Windows.Forms.Button button2;
         private System.Windows.Forms.Button button1;
-        private System.Windows.Forms.Button button6;
         private System.Windows.Forms.GroupBox groupBox2;
     }
 }

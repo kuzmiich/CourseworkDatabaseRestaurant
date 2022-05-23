@@ -122,5 +122,10 @@ namespace Restaurant
             deliveryTableAdapter.Fill(_Restaurant_DatabaseDataSet.Delivery);
             comboBox3.SelectedItem = comboBox3.Items.Cast<DataRowView>().Single(c => (int)c.Row["Id"] == id);
         }
+
+        private void button12_Click(object sender, EventArgs e)
+        {
+            new GoodsLogsReportForm().Show();
+        }
     }
 }

@@ -93,6 +93,12 @@
     <Compile Include="GoodsLogsReportForm.Designer.cs">
       <DependentUpon>GoodsLogsReportForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="GoodsReportForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="GoodsReportForm.Designer.cs">
+      <DependentUpon>GoodsReportForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="Main.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -136,6 +142,9 @@
     <EmbeddedResource Include="GoodsLogsReportForm.resx">
       <DependentUpon>GoodsLogsReportForm.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="GoodsReportForm.resx">
+      <DependentUpon>GoodsReportForm.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Main.resx">
       <DependentUpon>Main.cs</DependentUpon>
     </EmbeddedResource>
@@ -155,6 +164,7 @@
       <DependentUpon>ProviderForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Report.rdlc" />
+    <EmbeddedResource Include="Report2.rdlc" />
     <None Include="packages.config" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>

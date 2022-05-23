@@ -75,6 +75,7 @@ namespace Restaurant
             this.dataGridViewTextBoxColumn11 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn12 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dateOfRegistrationDateTimePicker = new System.Windows.Forms.DateTimePicker();
+            this.button12 = new System.Windows.Forms.Button();
             goodsIdLabel = new System.Windows.Forms.Label();
             providerIdLabel = new System.Windows.Forms.Label();
             deliveryIdLabel = new System.Windows.Forms.Label();
@@ -405,11 +406,11 @@ namespace Restaurant
             this.dataGridViewTextBoxColumn11,
             this.dataGridViewTextBoxColumn12});
             this.restaurantViewDataGridView.DataSource = this.restaurantViewBindingSource;
-            this.restaurantViewDataGridView.Location = new System.Drawing.Point(523, 12);
+            this.restaurantViewDataGridView.Location = new System.Drawing.Point(589, 12);
             this.restaurantViewDataGridView.Name = "restaurantViewDataGridView";
             this.restaurantViewDataGridView.RowHeadersWidth = 51;
             this.restaurantViewDataGridView.RowTemplate.Height = 24;
-            this.restaurantViewDataGridView.Size = new System.Drawing.Size(929, 306);
+            this.restaurantViewDataGridView.Size = new System.Drawing.Size(929, 350);
             this.restaurantViewDataGridView.TabIndex = 34;
             // 
             // dataGridViewTextBoxColumn7
@@ -468,11 +469,22 @@ namespace Restaurant
             this.dateOfRegistrationDateTimePicker.Size = new System.Drawing.Size(248, 22);
             this.dateOfRegistrationDateTimePicker.TabIndex = 35;
             // 
+            // button12
+            // 
+            this.button12.Location = new System.Drawing.Point(19, 331);
+            this.button12.Name = "button12";
+            this.button12.Size = new System.Drawing.Size(488, 46);
+            this.button12.TabIndex = 36;
+            this.button12.Text = "Purchase Ledger";
+            this.button12.UseVisualStyleBackColor = true;
+            this.button12.Click += new System.EventHandler(this.button12_Click);
+            // 
             // GoodsLogsForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1451, 345);
+            this.ClientSize = new System.Drawing.Size(1517, 389);
+            this.Controls.Add(this.button12);
             this.Controls.Add(this.dateOfRegistrationDateTimePicker);
             this.Controls.Add(this.restaurantViewDataGridView);
             this.Controls.Add(this.button11);
@@ -553,5 +565,6 @@ namespace Restaurant
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn10;
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn11;
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn12;
+        private System.Windows.Forms.Button button12;
     }
 }

@@ -56,11 +56,8 @@ namespace Restaurant
             this.countTextBox = new System.Windows.Forms.TextBox();
             this.isDeletedCheckBox = new System.Windows.Forms.CheckBox();
             this.goodsDataGridView = new System.Windows.Forms.DataGridView();
-            this.dataGridViewTextBoxColumn2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn4 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn5 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewCheckBoxColumn1 = new System.Windows.Forms.DataGridViewCheckBoxColumn();
+            this.manufacturersBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.manufacturersBindingSource1 = new System.Windows.Forms.BindingSource(this.components);
             this.goodsTableAdapter = new Restaurant._Restaurant_DatabaseDataSetTableAdapters.GoodsTableAdapter();
             this.tableAdapterManager = new Restaurant._Restaurant_DatabaseDataSetTableAdapters.TableAdapterManager();
             this.button8 = new System.Windows.Forms.Button();
@@ -73,8 +70,13 @@ namespace Restaurant
             this.button9 = new System.Windows.Forms.Button();
             this.button1 = new System.Windows.Forms.Button();
             this.comboBox1 = new System.Windows.Forms.ComboBox();
-            this.manufacturersBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.manufacturersTableAdapter = new Restaurant._Restaurant_DatabaseDataSetTableAdapters.ManufacturersTableAdapter();
+            this.button10 = new System.Windows.Forms.Button();
+            this.dataGridViewTextBoxColumn2 = new System.Windows.Forms.DataGridViewComboBoxColumn();
+            this.dataGridViewTextBoxColumn3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn4 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn5 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewCheckBoxColumn1 = new System.Windows.Forms.DataGridViewCheckBoxColumn();
             manufacturerIdLabel = new System.Windows.Forms.Label();
             goodsNameLabel = new System.Windows.Forms.Label();
             priceLabel = new System.Windows.Forms.Label();
@@ -86,6 +88,7 @@ namespace Restaurant
             ((System.ComponentModel.ISupportInitialize)(this._Restaurant_DatabaseDataSet)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.goodsDataGridView)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.manufacturersBindingSource)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.manufacturersBindingSource1)).BeginInit();
             this.SuspendLayout();
             // 
             // manufacturerIdLabel
@@ -93,7 +96,7 @@ namespace Restaurant
             manufacturerIdLabel.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left)));
             manufacturerIdLabel.AutoSize = true;
-            manufacturerIdLabel.Location = new System.Drawing.Point(24, 77);
+            manufacturerIdLabel.Location = new System.Drawing.Point(24, 53);
             manufacturerIdLabel.Name = "manufacturerIdLabel";
             manufacturerIdLabel.Size = new System.Drawing.Size(137, 17);
             manufacturerIdLabel.TabIndex = 1;
@@ -104,7 +107,7 @@ namespace Restaurant
             goodsNameLabel.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left)));
             goodsNameLabel.AutoSize = true;
-            goodsNameLabel.Location = new System.Drawing.Point(24, 120);
+            goodsNameLabel.Location = new System.Drawing.Point(24, 87);
             goodsNameLabel.Name = "goodsNameLabel";
             goodsNameLabel.Size = new System.Drawing.Size(95, 17);
             goodsNameLabel.TabIndex = 3;
@@ -115,7 +118,7 @@ namespace Restaurant
             priceLabel.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left)));
             priceLabel.AutoSize = true;
-            priceLabel.Location = new System.Drawing.Point(24, 165);
+            priceLabel.Location = new System.Drawing.Point(24, 123);
             priceLabel.Name = "priceLabel";
             priceLabel.Size = new System.Drawing.Size(44, 17);
             priceLabel.TabIndex = 5;
@@ -126,7 +129,7 @@ namespace Restaurant
             countLabel.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left)));
             countLabel.AutoSize = true;
-            countLabel.Location = new System.Drawing.Point(24, 201);
+            countLabel.Location = new System.Drawing.Point(24, 159);
             countLabel.Name = "countLabel";
             countLabel.Size = new System.Drawing.Size(49, 17);
             countLabel.TabIndex = 7;
@@ -137,7 +140,7 @@ namespace Restaurant
             isDeletedLabel.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left)));
             isDeletedLabel.AutoSize = true;
-            isDeletedLabel.Location = new System.Drawing.Point(24, 235);
+            isDeletedLabel.Location = new System.Drawing.Point(24, 193);
             isDeletedLabel.Name = "isDeletedLabel";
             isDeletedLabel.Size = new System.Drawing.Size(75, 17);
             isDeletedLabel.TabIndex = 9;
@@ -170,7 +173,7 @@ namespace Restaurant
             this.goodsBindingNavigator.MovePreviousItem = this.bindingNavigatorMovePreviousItem;
             this.goodsBindingNavigator.Name = "goodsBindingNavigator";
             this.goodsBindingNavigator.PositionItem = this.bindingNavigatorPositionItem;
-            this.goodsBindingNavigator.Size = new System.Drawing.Size(1108, 31);
+            this.goodsBindingNavigator.Size = new System.Drawing.Size(1108, 27);
             this.goodsBindingNavigator.TabIndex = 0;
             this.goodsBindingNavigator.Text = "bindingNavigator1";
             // 
@@ -180,7 +183,7 @@ namespace Restaurant
             this.bindingNavigatorAddNewItem.Image = ((System.Drawing.Image)(resources.GetObject("bindingNavigatorAddNewItem.Image")));
             this.bindingNavigatorAddNewItem.Name = "bindingNavigatorAddNewItem";
             this.bindingNavigatorAddNewItem.RightToLeftAutoMirrorImage = true;
-            this.bindingNavigatorAddNewItem.Size = new System.Drawing.Size(29, 28);
+            this.bindingNavigatorAddNewItem.Size = new System.Drawing.Size(29, 24);
             this.bindingNavigatorAddNewItem.Text = "Add new";
             // 
             // goodsBindingSource
@@ -196,7 +199,7 @@ namespace Restaurant
             // bindingNavigatorCountItem
             // 
             this.bindingNavigatorCountItem.Name = "bindingNavigatorCountItem";
-            this.bindingNavigatorCountItem.Size = new System.Drawing.Size(45, 28);
+            this.bindingNavigatorCountItem.Size = new System.Drawing.Size(45, 24);
             this.bindingNavigatorCountItem.Text = "of {0}";
             this.bindingNavigatorCountItem.ToolTipText = "Total number of items";
             // 
@@ -206,7 +209,7 @@ namespace Restaurant
             this.bindingNavigatorDeleteItem.Image = ((System.Drawing.Image)(resources.GetObject("bindingNavigatorDeleteItem.Image")));
             this.bindingNavigatorDeleteItem.Name = "bindingNavigatorDeleteItem";
             this.bindingNavigatorDeleteItem.RightToLeftAutoMirrorImage = true;
-            this.bindingNavigatorDeleteItem.Size = new System.Drawing.Size(29, 28);
+            this.bindingNavigatorDeleteItem.Size = new System.Drawing.Size(29, 24);
             this.bindingNavigatorDeleteItem.Text = "Delete";
             // 
             // bindingNavigatorMoveFirstItem
@@ -215,7 +218,7 @@ namespace Restaurant
             this.bindingNavigatorMoveFirstItem.Image = ((System.Drawing.Image)(resources.GetObject("bindingNavigatorMoveFirstItem.Image")));
             this.bindingNavigatorMoveFirstItem.Name = "bindingNavigatorMoveFirstItem";
             this.bindingNavigatorMoveFirstItem.RightToLeftAutoMirrorImage = true;
-            this.bindingNavigatorMoveFirstItem.Size = new System.Drawing.Size(29, 28);
+            this.bindingNavigatorMoveFirstItem.Size = new System.Drawing.Size(29, 24);
             this.bindingNavigatorMoveFirstItem.Text = "Move first";
             // 
             // bindingNavigatorMovePreviousItem
@@ -224,19 +227,18 @@ namespace Restaurant
             this.bindingNavigatorMovePreviousItem.Image = ((System.Drawing.Image)(resources.GetObject("bindingNavigatorMovePreviousItem.Image")));
             this.bindingNavigatorMovePreviousItem.Name = "bindingNavigatorMovePreviousItem";
             this.bindingNavigatorMovePreviousItem.RightToLeftAutoMirrorImage = true;
-            this.bindingNavigatorMovePreviousItem.Size = new System.Drawing.Size(29, 28);
+            this.bindingNavigatorMovePreviousItem.Size = new System.Drawing.Size(29, 24);
             this.bindingNavigatorMovePreviousItem.Text = "Move previous";
             // 
             // bindingNavigatorSeparator
             // 
             this.bindingNavigatorSeparator.Name = "bindingNavigatorSeparator";
-            this.bindingNavigatorSeparator.Size = new System.Drawing.Size(6, 31);
+            this.bindingNavigatorSeparator.Size = new System.Drawing.Size(6, 27);
             // 
             // bindingNavigatorPositionItem
             // 
             this.bindingNavigatorPositionItem.AccessibleName = "Position";
             this.bindingNavigatorPositionItem.AutoSize = false;
-            this.bindingNavigatorPositionItem.Font = new System.Drawing.Font("Segoe UI", 9F);
             this.bindingNavigatorPositionItem.Name = "bindingNavigatorPositionItem";
             this.bindingNavigatorPositionItem.Size = new System.Drawing.Size(49, 27);
             this.bindingNavigatorPositionItem.Text = "0";
@@ -245,7 +247,7 @@ namespace Restaurant
             // bindingNavigatorSeparator1
             // 
             this.bindingNavigatorSeparator1.Name = "bindingNavigatorSeparator1";
-            this.bindingNavigatorSeparator1.Size = new System.Drawing.Size(6, 31);
+            this.bindingNavigatorSeparator1.Size = new System.Drawing.Size(6, 27);
             // 
             // bindingNavigatorMoveNextItem
             // 
@@ -253,7 +255,7 @@ namespace Restaurant
             this.bindingNavigatorMoveNextItem.Image = ((System.Drawing.Image)(resources.GetObject("bindingNavigatorMoveNextItem.Image")));
             this.bindingNavigatorMoveNextItem.Name = "bindingNavigatorMoveNextItem";
             this.bindingNavigatorMoveNextItem.RightToLeftAutoMirrorImage = true;
-            this.bindingNavigatorMoveNextItem.Size = new System.Drawing.Size(29, 28);
+            this.bindingNavigatorMoveNextItem.Size = new System.Drawing.Size(29, 24);
             this.bindingNavigatorMoveNextItem.Text = "Move next";
             // 
             // bindingNavigatorMoveLastItem
@@ -262,20 +264,20 @@ namespace Restaurant
             this.bindingNavigatorMoveLastItem.Image = ((System.Drawing.Image)(resources.GetObject("bindingNavigatorMoveLastItem.Image")));
             this.bindingNavigatorMoveLastItem.Name = "bindingNavigatorMoveLastItem";
             this.bindingNavigatorMoveLastItem.RightToLeftAutoMirrorImage = true;
-            this.bindingNavigatorMoveLastItem.Size = new System.Drawing.Size(29, 28);
+            this.bindingNavigatorMoveLastItem.Size = new System.Drawing.Size(29, 24);
             this.bindingNavigatorMoveLastItem.Text = "Move last";
             // 
             // bindingNavigatorSeparator2
             // 
             this.bindingNavigatorSeparator2.Name = "bindingNavigatorSeparator2";
-            this.bindingNavigatorSeparator2.Size = new System.Drawing.Size(6, 31);
+            this.bindingNavigatorSeparator2.Size = new System.Drawing.Size(6, 27);
             // 
             // goodsBindingNavigatorSaveItem
             // 
             this.goodsBindingNavigatorSaveItem.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
             this.goodsBindingNavigatorSaveItem.Image = ((System.Drawing.Image)(resources.GetObject("goodsBindingNavigatorSaveItem.Image")));
             this.goodsBindingNavigatorSaveItem.Name = "goodsBindingNavigatorSaveItem";
-            this.goodsBindingNavigatorSaveItem.Size = new System.Drawing.Size(29, 28);
+            this.goodsBindingNavigatorSaveItem.Size = new System.Drawing.Size(29, 24);
             this.goodsBindingNavigatorSaveItem.Text = "Save Data";
             this.goodsBindingNavigatorSaveItem.Click += new System.EventHandler(this.goodsBindingNavigatorSaveItem_Click_1);
             // 
@@ -284,7 +286,7 @@ namespace Restaurant
             this.goodsNameTextBox.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left)));
             this.goodsNameTextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.goodsBindingSource, "GoodsName", true));
-            this.goodsNameTextBox.Location = new System.Drawing.Point(167, 115);
+            this.goodsNameTextBox.Location = new System.Drawing.Point(167, 87);
             this.goodsNameTextBox.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.goodsNameTextBox.Name = "goodsNameTextBox";
             this.goodsNameTextBox.Size = new System.Drawing.Size(121, 22);
@@ -295,7 +297,7 @@ namespace Restaurant
             this.priceTextBox.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left)));
             this.priceTextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.goodsBindingSource, "Price", true));
-            this.priceTextBox.Location = new System.Drawing.Point(167, 160);
+            this.priceTextBox.Location = new System.Drawing.Point(167, 123);
             this.priceTextBox.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.priceTextBox.Name = "priceTextBox";
             this.priceTextBox.Size = new System.Drawing.Size(121, 22);
@@ -306,7 +308,7 @@ namespace Restaurant
             this.countTextBox.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left)));
             this.countTextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.goodsBindingSource, "Count", true));
-            this.countTextBox.Location = new System.Drawing.Point(167, 196);
+            this.countTextBox.Location = new System.Drawing.Point(167, 156);
             this.countTextBox.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.countTextBox.Name = "countTextBox";
             this.countTextBox.Size = new System.Drawing.Size(121, 22);
@@ -316,7 +318,7 @@ namespace Restaurant
             // 
             this.isDeletedCheckBox.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.isDeletedCheckBox.DataBindings.Add(new System.Windows.Forms.Binding("CheckState", this.goodsBindingSource, "IsDeleted", true));
-            this.isDeletedCheckBox.Location = new System.Drawing.Point(167, 235);
+            this.isDeletedCheckBox.Location = new System.Drawing.Point(167, 193);
             this.isDeletedCheckBox.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.isDeletedCheckBox.Name = "isDeletedCheckBox";
             this.isDeletedCheckBox.Size = new System.Drawing.Size(19, 21);
@@ -344,45 +346,15 @@ namespace Restaurant
             this.goodsDataGridView.Size = new System.Drawing.Size(602, 337);
             this.goodsDataGridView.TabIndex = 12;
             // 
-            // dataGridViewTextBoxColumn2
+            // manufacturersBindingSource
             // 
-            this.dataGridViewTextBoxColumn2.DataPropertyName = "ManufacturerId";
-            this.dataGridViewTextBoxColumn2.HeaderText = "ManufacturerId";
-            this.dataGridViewTextBoxColumn2.MinimumWidth = 6;
-            this.dataGridViewTextBoxColumn2.Name = "dataGridViewTextBoxColumn2";
-            this.dataGridViewTextBoxColumn2.Width = 132;
+            this.manufacturersBindingSource.DataMember = "Manufacturers";
+            this.manufacturersBindingSource.DataSource = this._Restaurant_DatabaseDataSet;
             // 
-            // dataGridViewTextBoxColumn3
+            // manufacturersBindingSource1
             // 
-            this.dataGridViewTextBoxColumn3.DataPropertyName = "GoodsName";
-            this.dataGridViewTextBoxColumn3.HeaderText = "GoodsName";
-            this.dataGridViewTextBoxColumn3.MinimumWidth = 6;
-            this.dataGridViewTextBoxColumn3.Name = "dataGridViewTextBoxColumn3";
-            this.dataGridViewTextBoxColumn3.Width = 116;
-            // 
-            // dataGridViewTextBoxColumn4
-            // 
-            this.dataGridViewTextBoxColumn4.DataPropertyName = "Price";
-            this.dataGridViewTextBoxColumn4.HeaderText = "Price";
-            this.dataGridViewTextBoxColumn4.MinimumWidth = 6;
-            this.dataGridViewTextBoxColumn4.Name = "dataGridViewTextBoxColumn4";
-            this.dataGridViewTextBoxColumn4.Width = 69;
-            // 
-            // dataGridViewTextBoxColumn5
-            // 
-            this.dataGridViewTextBoxColumn5.DataPropertyName = "Count";
-            this.dataGridViewTextBoxColumn5.HeaderText = "Count";
-            this.dataGridViewTextBoxColumn5.MinimumWidth = 6;
-            this.dataGridViewTextBoxColumn5.Name = "dataGridViewTextBoxColumn5";
-            this.dataGridViewTextBoxColumn5.Width = 74;
-            // 
-            // dataGridViewCheckBoxColumn1
-            // 
-            this.dataGridViewCheckBoxColumn1.DataPropertyName = "IsDeleted";
-            this.dataGridViewCheckBoxColumn1.HeaderText = "IsDeleted";
-            this.dataGridViewCheckBoxColumn1.MinimumWidth = 6;
-            this.dataGridViewCheckBoxColumn1.Name = "dataGridViewCheckBoxColumn1";
-            this.dataGridViewCheckBoxColumn1.Width = 73;
+            this.manufacturersBindingSource1.DataMember = "Manufacturers";
+            this.manufacturersBindingSource1.DataSource = this._Restaurant_DatabaseDataSet;
             // 
             // goodsTableAdapter
             // 
@@ -480,7 +452,7 @@ namespace Restaurant
             // 
             // button1
             // 
-            this.button1.Location = new System.Drawing.Point(305, 74);
+            this.button1.Location = new System.Drawing.Point(305, 53);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(75, 23);
             this.button1.TabIndex = 21;
@@ -495,26 +467,77 @@ namespace Restaurant
             this.comboBox1.DisplayMember = "ManufacturerName";
             this.comboBox1.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.comboBox1.FormattingEnabled = true;
-            this.comboBox1.Location = new System.Drawing.Point(167, 74);
+            this.comboBox1.Location = new System.Drawing.Point(167, 53);
             this.comboBox1.Name = "comboBox1";
             this.comboBox1.Size = new System.Drawing.Size(121, 24);
             this.comboBox1.TabIndex = 22;
             this.comboBox1.ValueMember = "Id";
             // 
-            // manufacturersBindingSource
-            // 
-            this.manufacturersBindingSource.DataMember = "Manufacturers";
-            this.manufacturersBindingSource.DataSource = this._Restaurant_DatabaseDataSet;
-            // 
             // manufacturersTableAdapter
             // 
             this.manufacturersTableAdapter.ClearBeforeFill = true;
+            // 
+            // button10
+            // 
+            this.button10.Location = new System.Drawing.Point(334, 159);
+            this.button10.Name = "button10";
+            this.button10.Size = new System.Drawing.Size(100, 55);
+            this.button10.TabIndex = 23;
+            this.button10.Text = "Create Purchase ";
+            this.button10.UseVisualStyleBackColor = true;
+            this.button10.Click += new System.EventHandler(this.button10_Click);
+            // 
+            // dataGridViewTextBoxColumn2
+            // 
+            this.dataGridViewTextBoxColumn2.DataPropertyName = "ManufacturerId";
+            this.dataGridViewTextBoxColumn2.DataSource = this.manufacturersBindingSource;
+            this.dataGridViewTextBoxColumn2.DisplayMember = "ManufacturerName";
+            this.dataGridViewTextBoxColumn2.HeaderText = "ManufacturerId";
+            this.dataGridViewTextBoxColumn2.MinimumWidth = 6;
+            this.dataGridViewTextBoxColumn2.Name = "dataGridViewTextBoxColumn2";
+            this.dataGridViewTextBoxColumn2.Resizable = System.Windows.Forms.DataGridViewTriState.True;
+            this.dataGridViewTextBoxColumn2.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
+            this.dataGridViewTextBoxColumn2.ValueMember = "Id";
+            this.dataGridViewTextBoxColumn2.Width = 132;
+            // 
+            // dataGridViewTextBoxColumn3
+            // 
+            this.dataGridViewTextBoxColumn3.DataPropertyName = "GoodsName";
+            this.dataGridViewTextBoxColumn3.HeaderText = "GoodsName";
+            this.dataGridViewTextBoxColumn3.MinimumWidth = 6;
+            this.dataGridViewTextBoxColumn3.Name = "dataGridViewTextBoxColumn3";
+            this.dataGridViewTextBoxColumn3.Width = 116;
+            // 
+            // dataGridViewTextBoxColumn4
+            // 
+            this.dataGridViewTextBoxColumn4.DataPropertyName = "Price";
+            this.dataGridViewTextBoxColumn4.HeaderText = "Price";
+            this.dataGridViewTextBoxColumn4.MinimumWidth = 6;
+            this.dataGridViewTextBoxColumn4.Name = "dataGridViewTextBoxColumn4";
+            this.dataGridViewTextBoxColumn4.Width = 69;
+            // 
+            // dataGridViewTextBoxColumn5
+            // 
+            this.dataGridViewTextBoxColumn5.DataPropertyName = "Count";
+            this.dataGridViewTextBoxColumn5.HeaderText = "Count";
+            this.dataGridViewTextBoxColumn5.MinimumWidth = 6;
+            this.dataGridViewTextBoxColumn5.Name = "dataGridViewTextBoxColumn5";
+            this.dataGridViewTextBoxColumn5.Width = 74;
+            // 
+            // dataGridViewCheckBoxColumn1
+            // 
+            this.dataGridViewCheckBoxColumn1.DataPropertyName = "IsDeleted";
+            this.dataGridViewCheckBoxColumn1.HeaderText = "IsDeleted";
+            this.dataGridViewCheckBoxColumn1.MinimumWidth = 6;
+            this.dataGridViewCheckBoxColumn1.Name = "dataGridViewCheckBoxColumn1";
+            this.dataGridViewCheckBoxColumn1.Width = 73;
             // 
             // GoodsForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1108, 380);
+            this.Controls.Add(this.button10);
             this.Controls.Add(this.comboBox1);
             this.Controls.Add(this.button1);
             this.Controls.Add(this.button8);
@@ -547,6 +570,7 @@ namespace Restaurant
             ((System.ComponentModel.ISupportInitialize)(this._Restaurant_DatabaseDataSet)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.goodsDataGridView)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.manufacturersBindingSource)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.manufacturersBindingSource1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -584,14 +608,16 @@ namespace Restaurant
         private System.Windows.Forms.Button button3;
         private System.Windows.Forms.Button button2;
         private System.Windows.Forms.Button button9;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn2;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn3;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn4;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn5;
-        private System.Windows.Forms.DataGridViewCheckBoxColumn dataGridViewCheckBoxColumn1;
         private System.Windows.Forms.Button button1;
         private System.Windows.Forms.ComboBox comboBox1;
         private System.Windows.Forms.BindingSource manufacturersBindingSource;
         private _Restaurant_DatabaseDataSetTableAdapters.ManufacturersTableAdapter manufacturersTableAdapter;
+        private System.Windows.Forms.BindingSource manufacturersBindingSource1;
+        private System.Windows.Forms.Button button10;
+        private System.Windows.Forms.DataGridViewComboBoxColumn dataGridViewTextBoxColumn2;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn3;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn4;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn5;
+        private System.Windows.Forms.DataGridViewCheckBoxColumn dataGridViewCheckBoxColumn1;
     }
 }

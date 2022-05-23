@@ -30,7 +30,7 @@ namespace Restaurant
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            Microsoft.Reporting.WinForms.ReportDataSource reportDataSource1 = new Microsoft.Reporting.WinForms.ReportDataSource();
+            Microsoft.Reporting.WinForms.ReportDataSource reportDataSource2 = new Microsoft.Reporting.WinForms.ReportDataSource();
             this.RestaurantViewBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this._Restaurant_DatabaseDataSet = new Restaurant._Restaurant_DatabaseDataSet();
             this.GoodsBindingSource = new System.Windows.Forms.BindingSource(this.components);
@@ -42,6 +42,7 @@ namespace Restaurant
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.RestaurantViewTableAdapter = new Restaurant._Restaurant_DatabaseDataSetTableAdapters.RestaurantViewTableAdapter();
+            this.label3 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.RestaurantViewBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this._Restaurant_DatabaseDataSet)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.GoodsBindingSource)).BeginInit();
@@ -67,14 +68,14 @@ namespace Restaurant
             this.reportViewer1.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            reportDataSource1.Name = "DataSet1";
-            reportDataSource1.Value = this.RestaurantViewBindingSource;
-            this.reportViewer1.LocalReport.DataSources.Add(reportDataSource1);
+            reportDataSource2.Name = "DataSet1";
+            reportDataSource2.Value = this.RestaurantViewBindingSource;
+            this.reportViewer1.LocalReport.DataSources.Add(reportDataSource2);
             this.reportViewer1.LocalReport.ReportEmbeddedResource = "Restaurant.Report.rdlc";
-            this.reportViewer1.Location = new System.Drawing.Point(0, 37);
+            this.reportViewer1.Location = new System.Drawing.Point(0, 85);
             this.reportViewer1.Name = "reportViewer1";
             this.reportViewer1.ServerReport.BearerToken = null;
-            this.reportViewer1.Size = new System.Drawing.Size(1116, 456);
+            this.reportViewer1.Size = new System.Drawing.Size(1121, 453);
             this.reportViewer1.TabIndex = 0;
             // 
             // GoodsTableAdapter
@@ -133,11 +134,24 @@ namespace Restaurant
             // 
             this.RestaurantViewTableAdapter.ClearBeforeFill = true;
             // 
+            // label3
+            // 
+            this.label3.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.label3.AutoSize = true;
+            this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label3.Location = new System.Drawing.Point(480, 44);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(212, 29);
+            this.label3.TabIndex = 6;
+            this.label3.Text = "Purchase Ledger";
+            // 
             // GoodsLogsReportForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1116, 493);
+            this.ClientSize = new System.Drawing.Size(1121, 539);
+            this.Controls.Add(this.label3);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.button1);
@@ -169,5 +183,6 @@ namespace Restaurant
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.BindingSource RestaurantViewBindingSource;
         private _Restaurant_DatabaseDataSetTableAdapters.RestaurantViewTableAdapter RestaurantViewTableAdapter;
+        private System.Windows.Forms.Label label3;
     }
 }
